@@ -1,0 +1,75 @@
+/*--------------- BARRE INFO TOUT EN HAUT ----------------*/
+
+.barinfo{
+    background-color: #6F5843;
+    opacity: 57%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.barinfo p{
+    color: #FCF0D7;
+    margin: 0 70px 0 70px;
+    padding: 10px 0 10px 0;
+}
+
+/*--------------- BARRE DE NAVIGATION DU HEADER ----------------*/
+
+.navbar{
+    display: flex;
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+/*---Logo*/
+
+.navbar .logo img{
+    width: 200px;
+    cursor: pointer;
+}
+
+/*---Rubriques*/
+
+.navbar .rubriques .input-icon{
+    display: flex;
+    justify-content: end;
+    margin: -28px 20px 20px 0;
+}
+
+.navbar .rubriques .input-icon input:hover{
+    color:#FCF0D7;
+}
+
+.rubriques .input-icon .fa{
+    position: relative;
+    color:#ffffff;
+    padding:9px 0 9px 9px;
+    right: 230px;
+}
+
+.rubriques .input-icon input{
+    position: absolute;
+    padding: 5px 12px 5px 32px;
+    border-radius: 50px;
+    border: none;
+    background-color: #6f58434f;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.rubriques ul{
+    display: flex;
+    list-style: none;
+
+}
+
+.rubriques a{
+    text-decoration: none;
+    color: #6F5843;
+    margin-left: 30px;
+    
+}
+
+.rubriques a:hover{
+    color: #C19971;
+}

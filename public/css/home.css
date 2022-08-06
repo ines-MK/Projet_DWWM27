@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*--------------- BODY ----------------*/
+body{
+    background-image: url(../img/Background\ -\ Accueilbas.jpg);
+    background-size: auto;
+    background-attachment: fixed;
+}
+
+/*--------------- HEADER ----------------*/
+header{
+    width: 100vw;
+    height: 90vh;
+    background-image: url(../img/Background-Accueil.jpg);
+    background-size: cover;
+    background-position: right 20% bottom 0%; /*M'a permit de déplacer le background de mon header*/
+    position: absolute;
+}
+
+/*--------------- CENTRE DU HEADER ----------------*/
+.centre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 209px;
+}
+
+.centre h1{
+    color: #FCF0D7;
+    font-family:'Sitka Small', Bold;
+    font-size: 4.5rem;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.200);
+    margin-bottom: 60px;
+}
+
+.centre input{
+    background-color: #F6D0A1;
+    color:#6F5843;
+    padding: 10px 45px 10px 45px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+}
+
+.centre  input:hover{
+    color: #C19971;
+}
