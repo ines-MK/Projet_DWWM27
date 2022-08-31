@@ -1,0 +1,52 @@
+body{
+    background-image: url(../img/BackgroundBODY.jpg);
+    background-size: cover;
+}
+
+
+/* ---------------- MAIN ---------------- */
+
+h1{
+    color: #6F5843;
+    font-family:'Sitka Small', Bold;
+    font-size: 1.5rem;
+    margin-bottom: 3vh;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form .email .password input {
+    background-color: #FCF0D7;
+    border: none;
+    border-radius: 50px;
+    width: 22vw;
+    height: 8vh;
+    margin-bottom: 40px;
+    padding-left: 1%;
+    box-shadow: -2px 2px 4px 0px #00000035  inset;
+    outline-color:#F6D0A1;
+}
+
+form input::placeholder{
+    color: #6f584367;
+}
+
+.password-icon{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    color:#6F5843;
+    transition: all 0.2s;
+}
+
+.connection .password-icon .feather-eye-off{
+    display: none;
+    
+}
