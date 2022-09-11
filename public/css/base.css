@@ -76,45 +76,46 @@
 
 
 /*--------------- FOOTER ----------------*/
-.footer{
+.content{
     position: absolute;
-    bottom: 0;
+    margin-top: auto;
     width: 100vw;
 }
 
-.footer .footer-contain{
-    background-color: #ffffff3a;
+.content .footer-right{
+    background-color: #6f5843cb;
     box-shadow: 1px 2px 6px 1px #6f584311 inset;
     height: 13vh;
+    width: 100vw;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 5% 0 5%;
-    color: #C19971;
-    font-size: 1.2rem;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
 }
 
-.footer .footer-contain p{
+.content .footer-right p{
     margin-bottom: 0px;
     text-shadow:1px 1px 0px rgba(0, 0, 0, 0.034);
+    color:#FCF0D7;
 }
 
-.footer .payment img{
+.content .payment img{
     width: 2vw;
 }
 
-.footer .footer-contain .social-media{
+.content .footer-right .social-media{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     text-shadow:1px 1px 0px rgba(0, 0, 0, 0.034);
+    color:#FCF0D7;
 }
 
-.footer .footer-contain .social-media img{
+.content .footer-right .social-media img{
     width: 2.5vw;
 }
 
-.footer .copyright{
+.content .copyright{
     background-color: #6F5843;
     opacity: 57%;
     height: 4vh;
@@ -122,7 +123,7 @@
     margin: 0;
 }
 
-.footer .copyright p{
+.content .copyright p{
     color:#FCF0D7;
     margin: 0;
 }

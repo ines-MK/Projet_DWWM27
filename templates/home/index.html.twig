@@ -8,8 +8,72 @@
 
 {% block body %}
 
-<div class="centre">
+<!-- Début de l'entête -->
+<section class="centre">
     <h1>BIENVENUE</h1> 
     <input type="button" value="Découvrir">
-</div>
+    
+</section>
+<!-- Fin de l'entête -->
+
+<!-- Début du main -->
+    <main>
+        <section class="section1 col-12">
+            <span><h5>NOS MUSC TAHARA — <a href="#">Voir Tout</a></h5> </span>             
+                <div class="row" id="cards">
+
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="{{ asset('img/product/Monoï.png') }}" alt="Musc Monoï png">
+                            <h6>Musc Monoï</h6>
+                            <p>8.50€</p>
+                        </div>
+                    </div>
+            
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="{{ asset('img/product/BarbeàPapa.png') }}" alt="Musc Barbe à papa png">
+                            <h6>Musc Barbe à papa</h6>
+                            <p>9.00€</p>
+                        </div>
+                    </div>
+            
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="{{ asset('img/product/Classique.png') }}" alt="Musc Classique">
+                            <h6>Musc Classique</h6>
+                            <p>8.00€</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        
+        <section class="col-12">
+            <div class="nous">
+                <div class="left">
+                    <h2>À propos de nous</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis deleniti 
+                    voluptates veniam modi cum ipsum ab perspiciatis exercitationem, minima 
+                    molestias? Incidunt ullam dolor id ipsam alias consequuntur magnam quia culpa.</p>
+                    <input type="button" value="En savoir plus">
+                </div>
+                   <div class="right">
+                    <img src="{{ asset('img/kamel.jpg') }}" alt="Image/jpg">
+                   </div> 
+            </div>
+            <div class="valeurs">
+                <div class="left col-3">
+                    <h2>Nos valeurs</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aspernatur 
+                       repudiandae officia totam nesciunt error delectus eaque, nostrum eum, temporibus 
+                       quidem fugit iure beatae ratione nobis modi assumenda quas quasi.</p>
+                       <input type="button" value="En savoir plus">
+            </div>
+                <div class="right">
+                    <img src="{{ asset('img/gold.jpg') }}" alt="Image/jpg">
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Fin du main -->
 {% endblock %}
