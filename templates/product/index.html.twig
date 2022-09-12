@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Musc Tahara{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+{% endblock %}
+
+{% block body %}
+<main class=" col-12">
+    <h1 class="text-center">Musc Tahara</h1>
+    <section class="cards">
+        <div class="row">
+            <div class="card">
+            <img src="{{ asset('img/product/Classique.png') }}" alt="Image Musc Classique png">
+            <div class="right text-center">
+                <h5>Musc Classique</h5>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    <br> <b>- 7€ -</b> 
+                </p>
+                    <input type="button" value="Détails">
+            </div>
+            
+        </div>
+        <div class="card">
+            <img src="{{ asset('img/product/Oud.png') }}" alt="Image Musc Oud png">
+            <div class="right text-center">
+                <h5>Musc Oud</h5>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    <br> <b>- 7€ -</b> 
+                </p>
+                    <input type="button" value="Détails">
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ asset('img/product/CocoRouge.png') }}" alt="Image Musc Coco Rouge png">
+            <div class="right text-center">
+                <h5>Musc Coco Rouge</h5>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                <br> <b>- 7€ -</b> 
+            </p>
+                <input type="button" value="Détails">
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="card">
+            <img src="{{ asset('img/product/Monoï.png') }}" alt="Image Musc Monoï png">
+            <div class="right text-center">
+                <h5>Musc Monoï</h5>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    <br> <b>- 7€ -</b> 
+                </p>
+                    <input type="button" value="Détails">
+            </div>
+            
+            </div>
+        <div class="card">
+            <img src="{{ asset('img/product/BarbeàPapa.png') }}" alt="Image Musc Barbe à Papa png">
+            <div class="right text-center">
+                <h5>Musc Barbe à papa</h5>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <br> <b>- 7€ -</b> 
+            </p>
+                <input type="button" value="Détails">
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+

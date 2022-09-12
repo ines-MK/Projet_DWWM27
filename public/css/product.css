@@ -1,0 +1,67 @@
+h1{
+    color: #6F5843;
+    margin-bottom: 80px;
+}
+
+h5{
+    font-family:'Sitka Small', Bold;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.200);
+}
+
+/*------------------------- MAIN -------------------------*/
+
+main .cards{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .card{
+    width: 30vw;
+    height: 25vh;
+    border: none;
+    border-radius: 150px;
+    background-color:#C19971;
+    color: #544435;
+    margin: 20px 20px 100px 20px;
+    padding: 0;
+    box-shadow: inset 0px 5px rgba(59, 37, 21, 0.046);
+    display: flex;
+    flex-direction: row;
+}
+
+main .card:hover{
+    transition: 0.2s;
+    background-color: #6F5843;
+    color: #F6D0A1;
+}
+
+main .card img{
+    width: 28vh;
+    height: 25vh;
+    border-radius: 150px;
+    background-size: cover;
+}
+
+main .card .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+main .card .right p{
+    margin-bottom: 5px;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.150);
+}
+
+main .right input{
+    background-color: #F6D0A1;
+    color:#6F5843;
+    padding: 5px 0 5px 0;
+    width: 5vw;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: none;
+}

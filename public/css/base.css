@@ -1,3 +1,13 @@
+body{
+    background-image: url(../img/Background\ -\ Accueilbas.jpg);
+}
+
+h1{
+    color: #FCF0D7;
+    font-family:'Sitka Small', Bold;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.200);
+}
+
 /*--------------- BARRE INFO TOUT EN HAUT ----------------*/
 
 .barinfo{
@@ -91,12 +101,19 @@
     justify-content: space-around;
     align-items: center;
     font-size: 1rem;
+    list-style: none;
 }
 
-.content .footer-right p{
+.content .footer-right a{
     margin-bottom: 0px;
     text-shadow:1px 1px 0px rgba(0, 0, 0, 0.034);
     color:#FCF0D7;
+    text-decoration: none;
+}
+
+.content .footer-right a:hover{
+    color:#C19971;
+    transition: 0.2s;
 }
 
 .content .payment img{
