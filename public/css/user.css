@@ -19,7 +19,7 @@ form{
     flex-direction: column;
 }
 
-form .email .password input {
+form .email input, .password input{
     background-color: #FCF0D7;
     border: none;
     border-radius: 50px;
@@ -48,5 +48,20 @@ form input::placeholder{
 
 .connection .password-icon .feather-eye-off{
     display: none;
-    
+}
+
+.valider .btn-secondary{
+    background-color: #6F5843;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.inscription .btn-success{
+    background-color:#C19971;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 60px;
 }

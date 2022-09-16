@@ -1,5 +1,6 @@
 body{
     background-image: url(../img/Background\ -\ Accueilbas.jpg);
+    background-size: cover;
 }
 
 h1{
@@ -86,17 +87,16 @@ h1{
 
 
 /*--------------- FOOTER ----------------*/
-.content{
+content{
     position: absolute;
     margin-top: auto;
-    width: 100vw;
+    background-color: aquamarine;
 }
 
 .content .footer-right{
     background-color: #6f5843cb;
     box-shadow: 1px 2px 6px 1px #6f584311 inset;
-    height: 13vh;
-    width: 100vw;
+    height: 20vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -105,7 +105,6 @@ h1{
 }
 
 .content .footer-right a{
-    margin-bottom: 0px;
     text-shadow:1px 1px 0px rgba(0, 0, 0, 0.034);
     color:#FCF0D7;
     text-decoration: none;

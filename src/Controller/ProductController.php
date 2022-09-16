@@ -14,8 +14,18 @@ class ProductController extends AbstractController
     {
         $products = $productRepository->findAll();
         return $this->render('product/index.html.twig', [
-            'product' => $products,
+            'products' => $products,
         ]);
+    }
+
+    #[Route('/product/{slug}', name:'product_detail')]
+    public function detail($slug, ProductRepository $productRepository): Response
+    {
+        $product = $productRepository->findOneBy(['slug' => $slug]);
+        return $this->render('product/detail.html.twig', [
+            'product' => $product
+        ]);
+        // dd($product);
     }
 }
 

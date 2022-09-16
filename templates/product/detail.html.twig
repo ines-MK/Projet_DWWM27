@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+{% block description %}{{ product.abstract }}{% endblock %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/product.css')}}">
+{% endblock %}
+
+{% block h1 %}{{ product.name }}{% endblock %}
+
+{% block body %}
+
+<div class="container mb-5">
+    <div class="row">
+         <div class="col-6">
+                <div class="card" id="p_pictures">
+                        <div class="column">
+                        <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                            <div class="mini">
+                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="detail_product"> 
+                    <div class="column">
+                        <h2 style= "text-shadow: 1px 3px 2px rgba(255, 255, 255, 0.819);">{{ product.name }}</h2>
+                        <p style="font-size: 1.5rem; color: #C19971; text-shadow: 1px 3px 2px rgba(255, 255, 255, 0.819);"><b>{{ product.price }}€</b></p>
+                        <p class="card-text">{{ product.description }}
+                        <br><br>
+                            {% if product.quantity != 0 %}
+                            <span class="fs-7 text-success">Disponible</span>
+                            {% else %}
+                            <span class="fs-7 text-danger">Rupture de stock</span>
+                            {% endif %}
+                        </p>  
+                      <a href=""><button type="button" class="btn btn-secondary">Ajouter au panier</button></a>
+                      <a href=""><button type="button" class="btn btn-success">Acheter</button></a> 
+                    </div>
+                </div>
+            </div>
+    </div>
+           
+</div>
+       
+            
+
+{% endblock %}

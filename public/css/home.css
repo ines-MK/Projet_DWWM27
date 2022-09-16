@@ -13,7 +13,6 @@ body{
 
 /*--------------- HEADER ----------------*/
 header{
-    width: 100vw;
     height: 90vh;
     background-size: cover;background-image: url(../img/Background-Accueil.jpg);
     background-position: right 20% bottom 0%; /*M'a permit de déplacer le background de mon header*/
@@ -79,6 +78,7 @@ main .card{
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    width: 25vw;
 }
 
 main .card:hover{
@@ -90,12 +90,11 @@ main .card h6{
     margin-top: 13px;
 }
 
-main #cards{
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
-    width: 100vw;
+main .cards{
     color: #6F5843;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
 }
 
 main .left input{
@@ -143,7 +142,7 @@ main .right img{
     height: 40vh;
 }
 
-main .valeurs{
+main .produits{
     color: #6F5843;
     margin: 100px 0 100px 0;
     flex: 0 0 30%;
@@ -154,7 +153,7 @@ main .valeurs{
     text-align: center;
 }
 
-main .valeurs .left{
+main .produits .left{
     background-color:#C19971;
     padding: 22px;
     height: 43vh;

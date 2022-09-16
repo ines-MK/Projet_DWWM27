@@ -7,74 +7,26 @@
 {% endblock %}
 
 {% block body %}
-<main class=" col-12">
     <h1 class="text-center">Musc Tahara</h1>
-    <section class="cards">
-        <div class="row">
-            <div class="card">
-            <img src="{{ asset('img/product/Classique.png') }}" alt="Image Musc Classique png">
-            <div class="right text-center">
-                <h5>Musc Classique</h5>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                    <br> <b>- 7€ -</b> 
-                </p>
-                    <input type="button" value="Détails">
-            </div>
+    <div class="cards row col-12">
+        {% for product in products %}
+                <div class="card">
+                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image Musc Classique png">
+                        <div class="right text-center">
+                            <h5>{{product.name|u.truncate(15, false)}}</h5>
+                                <p>
+                                {{product.abstract|u.truncate(40, '...', false)}}<br> 
+                                <b>- {{product.price}}€ -</b> 
+                                </p>
+                                <div class="button">
+                                    <a href="#" class="card-link btn btn-outline-primary">Détails</a>
+                                    <a href="#" class="btn btn-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}"><i class="bi bi-cart-plus-fill"></i></a>
+                                </div>
+                        </div>
+                </div>
+                {% endfor %}
+    </div>
             
-        </div>
-        <div class="card">
-            <img src="{{ asset('img/product/Oud.png') }}" alt="Image Musc Oud png">
-            <div class="right text-center">
-                <h5>Musc Oud</h5>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                    <br> <b>- 7€ -</b> 
-                </p>
-                    <input type="button" value="Détails">
-            </div>
-        </div>
 
-        <div class="card">
-            <img src="{{ asset('img/product/CocoRouge.png') }}" alt="Image Musc Coco Rouge png">
-            <div class="right text-center">
-                <h5>Musc Coco Rouge</h5>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                <br> <b>- 7€ -</b> 
-            </p>
-                <input type="button" value="Détails">
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="card">
-            <img src="{{ asset('img/product/Monoï.png') }}" alt="Image Musc Monoï png">
-            <div class="right text-center">
-                <h5>Musc Monoï</h5>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    <br> <b>- 7€ -</b> 
-                </p>
-                    <input type="button" value="Détails">
-            </div>
-            
-            </div>
-        <div class="card">
-            <img src="{{ asset('img/product/BarbeàPapa.png') }}" alt="Image Musc Barbe à Papa png">
-            <div class="right text-center">
-                <h5>Musc Barbe à papa</h5>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                <br> <b>- 7€ -</b> 
-            </p>
-                <input type="button" value="Détails">
-            </div>
-            
-        </div>
-        </div>
-    </section>
-</main>
 {% endblock %}
 

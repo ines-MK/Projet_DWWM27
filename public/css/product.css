@@ -3,37 +3,35 @@ h1{
     margin-bottom: 80px;
 }
 
-h5{
-    font-family:'Sitka Small', Bold;
+h2, h5{
     text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.200);
 }
 
 /*------------------------- MAIN -------------------------*/
-
 main .cards{
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
 main .card{
     width: 30vw;
     height: 25vh;
+    margin: 40px;
     border: none;
     border-radius: 150px;
-    background-color:#C19971;
-    color: #544435;
-    margin: 20px 20px 100px 20px;
+    background-color:#876d54cf;
+    color: #fbead5;
     padding: 0;
     box-shadow: inset 0px 5px rgba(59, 37, 21, 0.046);
     display: flex;
     flex-direction: row;
 }
 
-main .card:hover{
+main .cards .card:hover{
     transition: 0.2s;
-    background-color: #6F5843;
-    color: #F6D0A1;
+    background-color: #c19971a4;
+    color: #faeedf;
 }
 
 main .card img{
@@ -48,20 +46,67 @@ main .card .right{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-right: 30px;
+    margin-right: 40px;
 }
 
 main .card .right p{
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.150);
 }
 
-main .right input{
+main .right .button a{
     background-color: #F6D0A1;
+    text-decoration: none;
     color:#6F5843;
-    padding: 5px 0 5px 0;
-    width: 5vw;
+    padding: 5px 15px 5px 15px;
     font-size: 1rem;
     border-radius: 50px;
+    border: none;
+}
+
+/*---------------------- DETAIL PRODUIT--------------------*/ 
+
+#p_pictures{
+    height: 85vh;
+    width: 30vw;
+    background-color: #e1ae7375;
+}
+
+#p_pictures img{
+    height: 60vh;
+    width: 30vw;
+}
+
+#p_pictures .mini{
+    display: flex;
+    justify-content: center;
+}
+
+#p_pictures .mini img{
+    width: 6vw;
+    height: 12vh;
+    margin: 30px 10px 0px 10px;
+}
+
+#p_pictures .mini img:hover{
+    transform:scale(1.25);
+    transition: 0.5s;
+}
+
+.detail_product{
+    color: #6F5843;
+    height: 95vh;
+    background-color: #ffffff00;
+    display: flex;
+    align-items: center;
+}
+
+.detail_product .btn-secondary{
+    background-color:#C19971;
+    border: none;
+}
+
+.detail_product .btn-success{
+    background-color: #6F5843;
     border: none;
 }
