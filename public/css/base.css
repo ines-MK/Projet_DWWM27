@@ -87,11 +87,6 @@ h1{
 
 
 /*--------------- FOOTER ----------------*/
-content{
-    position: absolute;
-    margin-top: auto;
-    background-color: aquamarine;
-}
 
 .content .footer-right{
     background-color: #6f5843cb;

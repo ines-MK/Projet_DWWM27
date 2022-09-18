@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-image: url(../img/admin/Admin.png);
+    background-size: cover;
+}
+/*---------------------------------------- HEADER -----------------------------------------*/
+
+header{
+    background-color: #000000cf;
+}
+
+/*---------------------------------------- BASE ADMIN // NAV -----------------------------------------*/
+
+nav{
+    background-color: #3b281641;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 20vw;
+    height: 100vh;
+    padding-top: 30px;
+}
+
+nav ul li, a{
+    list-style: none;
+    text-decoration: none;
+    color: #FCF0D7;
+}
+
+img{
+    width: 70vw;
+    height: 70vh;
+    margin-top: 20px;
+}
+
+nav a:hover{
+    color:#6F5843
+}
+
+.admin_home{
+    color: #dfc1a5;
+    background:rgba(0, 0, 0, 0.27);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
