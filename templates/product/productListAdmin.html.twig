@@ -1,0 +1,34 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" id="liste">Liste des produits</h1>
+        <table class="table table-hover table-sm text-center align-middle">
+            <thead>
+            <tr>
+                <th class="col-3">N°</th>
+                <th class="col-2">Nom</th>
+                <th class="col-2">Catégorie</th>
+                <th class="col-1">Prix</th>
+                <th class="col-3">Résumé</th>
+                <th class="col-1">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                    {% for product in products|reverse %}
+            <tr>
+                    <td>{{ loop.revindex }}<img src="{{ asset('img/product/Monoï.png') }}" alt="Image principale du produit {{ product.name }}" class="pe-3 m-3"></td>
+                    <td>{{product.name}}</td>
+                    <td>CATEGORY</td>
+                    <td>{{ product.price|number_format(2, ',', ' ') }}€</td>
+                    <td>{{ product.abstract }}</td>
+                    <td>
+                        <i class="bi bi-pencil-square"></i></a>
+                        <i class="bi bi-trash3 text-danger"></i></a>
+                    </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+      </table>
+{% endblock %}
