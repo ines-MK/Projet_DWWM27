@@ -37,7 +37,7 @@
 
         <main class="container-fluid">
             <div class="row">
-                <nav class="col-3">
+                    <nav class="col-1">
                             <ul class="p-0 mt-4">
                                 <li class="py-4"><a href="{{ path('admin') }}" title="Accueil administrateur"><i class="bi bi-house fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('admin_products') }}" title="Produits"><i class="bi bi-bag-plus fs-4"></i></a></li>
@@ -47,6 +47,7 @@
                                 <li class="py-4"><a href="#" title="Déconnexion"><i class="bi bi-box-arrow-left fs-4"></i></a></li>
                             </ul>
               </nav>
+                
               <div class="col-11">
                 <div class="row p-5">
                     {% block body %}{% endblock %}
