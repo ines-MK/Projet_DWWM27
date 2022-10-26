@@ -1,0 +1,21 @@
+.nous h1{
+    color: #6F5843;
+    margin-bottom: 100px;
+}
+
+.nous p{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 200px 40px 200px;
+    color: #6F5843;
+}
+
+.nous h2{
+    display: flex;
+    text-align: start;
+    margin-left: 10vw;
+    color: #6F5843;
+}
+

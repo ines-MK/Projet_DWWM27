@@ -25,11 +25,13 @@
                     <div class="col-12">
                         <div class="cards">
                             {% for product in products %}
+                            <a href="{{ path('product_detail' , {'slug' : product.slug }) }}">
                                     <div class="card">
                                         <img src="{{ asset('img/product/Monoï.png') }}" alt="Musc Monoï png">
                                         <h6>{{product.name}}</h6>
                                         <p>{{product.price}}</p>
                                     </div>
+                                </a>    
                             {% endfor %}
                         </div>
                     </div>

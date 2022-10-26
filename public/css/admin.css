@@ -47,7 +47,9 @@ nav a:hover{
 .admin_home{
     color: #dfc1a5;
     background:rgba(0, 0, 0, 0.27);
-    padding: 20px;
+    margin: 30px;
+    margin-left: 100px;
+    padding: 5%;
     display: flex;
     justify-content: center;
 }
@@ -65,9 +67,12 @@ nav a:hover{
     margin-left: 10%;
 }
 
-
 td img{
     width: 10vw;
     height: 20vh;
     border-radius: 50%;
+}
+
+.btn-light a{
+    color: #6F5843;
 }

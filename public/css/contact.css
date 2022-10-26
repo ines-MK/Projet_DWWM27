@@ -1,0 +1,12 @@
+h1{
+    color: #6F5843;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    padding: 10px;
+}
