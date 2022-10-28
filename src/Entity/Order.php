@@ -39,6 +39,9 @@ class Order
     #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrderDetail::class)]
     private Collection $orderDetails;
 
+    #[ORM\OneToOne(mappedBy: 'fromOrder', cascade: ['persist', 'remove'])]
+    private ?PaymentRequest $paymentRequest = null;
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
@@ -147,6 +150,28 @@ class Order
                 $orderDetail->setOrders(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPaymentRequest(): ?PaymentRequest
+    {
+        return $this->paymentRequest;
+    }
+
+    public function setPaymentRequest(?PaymentRequest $paymentRequest): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($paymentRequest === null && $this->paymentRequest !== null) {
+            $this->paymentRequest->setFromOrder(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($paymentRequest !== null && $paymentRequest->getFromOrder() !== $this) {
+            $paymentRequest->setFromOrder($this);
+        }
+
+        $this->paymentRequest = $paymentRequest;
 
         return $this;
     }

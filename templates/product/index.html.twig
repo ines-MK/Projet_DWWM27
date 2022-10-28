@@ -20,7 +20,7 @@
                                 </p>
                                 <div class="button">
                                     <a href="{{ path('product_detail' , {'slug' : product.slug}) }}" class="card-link btn btn-outline-primary">Détails</a>
-                                    <a href="#" class="btn btn-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}"><i class="bi bi-cart-plus-fill"></i></a>
+                                    <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}"><i class="bi bi-cart-plus-fill"></i></a>
                                 </div>
                         </div>
                 </div>

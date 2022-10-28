@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PaymentRequest index{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/payment.css')}}">{% endblock %}
+
+{% block body %}
+    <h1>Paiements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N*</th>
+                <th>Créer le</th>
+                <th>Payé le</th>
+                <th>Validation</th>
+                <th>StripeSessionId</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for payment_request in payment_requests %}
+            <tr>
+                <td>{{ payment_request.id }}</td>
+                <td>{{ payment_request.createdAt ? payment_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ payment_request.paidAt ? payment_request.paidAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ payment_request.validated ? 'Yes' : 'No' }}</td>
+                <td>{{ payment_request.stripeSessionId }}</td>
+                <td>
+                    <a href="{{ path('app_admin_payment_request_show', {'id': payment_request.id}) }}">show</a>
+                    <a href="{{ path('app_admin_payment_request_edit', {'id': payment_request.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_payment_request_new') }}">Nouveau paiement</a>
+{% endblock %}

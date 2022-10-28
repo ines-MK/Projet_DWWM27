@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}Consultez et modifiez votre panier{% endblock %}
+
+{% block title %}Panier{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/cart.css')}}">{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Panier</h1>
+{% if cart.elements %}
+<div class="panier">
+    
+<table class="table text-center">
+    <thead>
+        <th scope="col">Nom</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
+    </thead>
+    
+<tbody>
+    {% for element in cart.elements %}
+    <tr>
+        <td>{{ element.product.name }}</td>
+        <td>
+           <a href="{{ path('cart_remove', {'id': element.product.id}) }}"><i class="bi bi-dash-circle text-danger"></i></a>
+        {{ element.quantity }}
+        <a href="{{ path('cart_add', {'id': element.product.id}) }}"><i class="bi bi-plus-circle text-success"></i></a> 
+        </td>
+        
+
+        <td>{{ element.product.price }} €</td>
+    </tr>
+    
+    {% endfor %}
+</tbody>
+<tfoot>
+    <tr>
+        <th></th>
+        <th>TOTAL : </th>
+        <th>{{ cart.total }} €</th>
+    </tr>
+</tfoot>
+
+{% else %}
+
+<div class="clear_cart">
+            Votre panier est vide
+</div>
+        
+{% endif %}    
+</table>
+</div>
+<div class="add_remove_cart">
+    <div class="col-10 text-end">
+        <a href="{{ path('cart_validation') }}" class="btn btn-success">Valider le panier</a>
+        <a href="{{ path('cart_clear') }}" class="btn btn-danger">Vider le panier</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

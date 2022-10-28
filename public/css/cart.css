@@ -1,0 +1,61 @@
+h1{
+    color: #6F5843;
+}
+
+.panier{
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table{
+    width: 50vw;
+    margin-left: 50px;
+}
+
+.table thead th{
+    background-color: #6f5843b0;
+    color: #FCF0D7;
+}
+
+table th{
+    width: 100px;
+}
+
+tfoot{
+    background-color: #6f58432e;
+    color: #694319;
+}
+
+.add_remove_cart{
+    display: flex;
+    margin-bottom: 31px;
+}
+
+.clear_cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: #694319;
+    border-radius: 50px;
+    height: 14vw;
+    padding: 10px;
+}
+
+.btn-danger{
+    background-color:#C19971;
+    border: none;
+}
+
+.btn-success{
+    background-color: #6F5843;
+    border: none;
+}
+
+.btn:hover{
+    background-color:#FCF0D7;
+    color: #6F5843;
+}

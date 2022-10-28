@@ -28,9 +28,6 @@ class Product
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?Category $category = null;
-
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: OrderDetail::class)]
     private Collection $orderDetails;
 
@@ -97,18 +94,6 @@ class Product
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
