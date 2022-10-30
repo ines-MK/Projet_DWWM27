@@ -24,7 +24,8 @@ class ContactController extends AbstractController
             $contact = $form->getData(); // ici je récupère les données du formulaire
             $email = (new TemplatedEmail())
             ->from(new Address($contact['email'], $contact['prenom'] . ' ' . $contact['nom'])) // expediteur
-            ->to(new Address('elrizana.contact@gmail.com')) 
+            ->to(new Address('elrizana.contact@gmail.com'))
+            ->replyTo(new Address($contact['email'], $contact['prenom'] . ' ' . $contact['nom']))  
             ->subject('El Rizana - demande de contact - ' . $contact['sujet']) // objet
             ->htmlTemplate('contact/emailcontact.html.twig') // chemin du template email
             ->context([ // passe les données du form au template
