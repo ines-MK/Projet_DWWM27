@@ -41,7 +41,7 @@ class ContactController extends AbstractController
                 $email->attachFromPath($contact['piece_jointe']->getPathName(), $newFileName); // attache PJ au corps du mail 
             }
             $mailer->send($email); // envoi de l'email
-            $this->addFlash('success', 'Votre message a été envoyé avec succès');
+            $this->addFlash('success', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('contact');
         }
 

@@ -3,10 +3,42 @@ h1{
     margin-bottom: 30px;
 }
 
-form{
+.contact form{
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 50px;
     padding: 10px;
+    margin: 20px;
+}
+
+.contact button{
+    background-color: #6f5843df;
+    color: #FCF0D7;
+}
+
+.contact label{
+    color: #6F5843;
+}
+
+.contact form input{
+    background-color: #6f584336;
+    border-radius: 50px;
+    border: none;
+    width: 20vw;
+    height: 5vh;
+}
+
+.contact form textarea{
+    background-color: #6f584336;
+    width: 20vw;
+    border: none;
+}
+
+
+.contact form select{
+    background-color: #6f584336;
+    width: 20vw;
+    border: none;
+    border-radius: 50px;
 }

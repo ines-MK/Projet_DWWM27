@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class CartService
@@ -67,5 +68,4 @@ class CartService
     {
         $this->sessionInterface->remove('cart');
     }
-
 }

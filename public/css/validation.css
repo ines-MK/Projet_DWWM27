@@ -1,0 +1,50 @@
+h1, h2{
+    color: #6F5843;
+}
+
+#row{
+    margin: 0;
+}
+
+#panier{
+    margin-top: 100px;
+}
+
+#panier tbody{
+    background-color: #6f584345;
+    color:#6F5843;
+}
+
+#panier thead, tfoot{
+    background-color: #6f5843b0;
+    color: #FCF0D7;
+}
+
+#livraison label{
+    color: #6F5843;
+}
+
+#livraison select{
+    background-color: #6f584345;
+    border-radius: 50px;
+    border: none;
+    padding: 15px;
+}
+
+.validation{
+    width: 8vw;
+    padding: 10px 20px 10px 20px;
+    background-color:#6F5843;
+    border-radius: 50px;
+    border: none;
+    margin: -10px 100px 30px 0;
+}
+
+.validation:hover{
+    background-color: #6f584390;
+}
+
+.validation a{
+    text-decoration: none;
+    color: #FCF0D7;
+}

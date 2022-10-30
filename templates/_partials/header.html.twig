@@ -11,17 +11,36 @@
      </div>
 
      <div class="rubriques">
-        <div class="input-icon">
-          <a href="{{ path('user') }}"><input type="button" value="Se connecter / créer un compte"></a>
-          <i class="fa fa-user"></i>
-        </div>
+      {% if app.user %}
+      <div class="deconnexion">
+        <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+      </div>
+      {% else %}
+      <div class="input-icon">
+        <a href="{{ path('login') }}"><input type="button" value="Se connecter / créer un compte"></a>
+        <i class="fa fa-user"></i>
+      </div>
+      {% endif %}
+
+      {% if is_granted('ROLE_ADMIN') %}
+      <div class="input-icon">
+        <a href="{{ path('admin') }}"><input type="button" value="Espace Administrateur"></a>
+        <i class="fa fa-user"></i>
+      </div>
+      {% elseif is_granted('ROLE_USER') %}
+      <div class="input-icon" style="margin-right: -55px;">
+        <a href="#"><input type="button" value="Mon espace"></a>
+        <i class="fa fa-user"></i>
+      </div>
+      {% endif %}
+        
         
           <ul>
               <li><a href="{{ path('we') }}">Qui sommes nous ?</a></li>
               <li><a href="{{ path('products') }}">Musc Tahara</a></li>
               <li><a href="{{ path('contact') }}">Nous contacter</a></li>
               <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-              <li><a href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i></a></li>
+              <li><a href="{{ path('cart') }}" title="Panier"><i class="fas fa-shopping-cart"></i></a></li>
          </ul>
     </div>
  </div>

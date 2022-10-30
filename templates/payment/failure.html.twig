@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/payment.css')}}">{% endblock %}
 
 {% block body %}
-<h1>Echec de paiement</h1>
+<div id="failure">
+    <h1><i class="bi bi-exclamation-triangle"></i>&nbsp;Échec de paiement</h1>
+    <button type="submit" class="btn-retour"><a href="{{ path('cart') }}">Retour au panier</a></button>
+</div>
 {% endblock %}

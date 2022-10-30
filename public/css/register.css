@@ -1,0 +1,31 @@
+h1{
+    color: #6F5843;;
+}
+
+
+
+#inscription{
+    margin: 80px;
+}
+
+#inscription label{
+    color: #6F5843;
+}
+
+#inscription input{
+    background-color: #836a5380;
+    border: none;
+    border-radius: 50px;
+    box-shadow: -2px 2px 4px 0px #00000035  inset;
+}
+
+#inscription_btn{
+    background-color: #6f584380;
+    color: #FCF0D7;
+    border: none;
+}
+
+#inscription_btn:hover{
+    background-color: #C19971;
+}
+

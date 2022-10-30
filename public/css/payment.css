@@ -1,5 +1,44 @@
-h1{
-    color: #6F5843;
+#success h1{
     display: flex;
     align-items: center;
+    justify-content: center;
+    color: #6cb77b;
+    margin: 50px;
+}
+
+#success p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6F5843;
+    margin-bottom: 162px;
+    font-weight: 600;
+}
+
+#failure{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#failure h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b76c6c;
+    margin: 50px;
+}
+
+#failure .btn-retour{
+    background-color:#C19971;
+    border: none;
+    border-radius: 50px;
+    padding:10px 15px 10px 15px;
+    margin-bottom: 141px;
+}
+
+#failure .btn-retour a{
+    text-decoration: none;
+    color: #FCF0D7;
 }

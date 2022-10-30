@@ -43,14 +43,13 @@ class ContactType extends AbstractType
             ])
             ->add('message', TextareaType::class, [
             'attr' => [
-                'minLenght' => 20,
                 'maxLenght' => 2000
             ],
-            'help' => '2000 caractères maximum'
+            'help' => '2000 caractères maximum*'
             ])
             ->add('piece_jointe', FileType::class, [
                 'required' => false,
-                'help' => 'image ou document PDF',
+                'help' => 'image ou document PDF*',
                 'constraints' => [
                     new File([
                         'maxSize' => '2M',

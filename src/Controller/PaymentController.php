@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use DateTimeImmutable;
 use App\Service\CartService;
 use App\Entity\PaymentRequest;
 use App\Service\PaymentService;
-use App\Repository\PaymentRequestRepository;
-use DateTimeImmutable;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\PaymentRequestRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,8 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PaymentController extends AbstractController
 {
     #[Route('/payment', name: 'payment')]
-    public function index(PaymentService $paymentService, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, PaymentService $paymentService, EntityManagerInterface $entityManager): Response
     {
+        if ($request->headers->get('referer') !== 'https://127.0.0.1/cart/validation') {
+            return $this->redirectToRoute('cart');
+        }
+
         $sessionId = $paymentService->create();
 
         $paymentRequest = new PaymentRequest();
@@ -26,7 +31,7 @@ class PaymentController extends AbstractController
 
         $entityManager->persist($paymentRequest);
         $entityManager->flush(); 
-
+        
         return $this->render('payment/index.html.twig', [
             'sessionId' => $sessionId
         ]);

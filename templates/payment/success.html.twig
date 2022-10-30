@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Succès{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/payment.css')}}">{% endblock %}
+
 {% block body %}
-<h1>Le paiement à été éffectué avec succès !!</h1>
+<div id="success">
+    <h1>Le paiement à été éffectué avec succès !!</h1>
+    <p>L'équipe El Rizana vous remercie pour votre confiance. À très vite !</p>
+</div>
 {% endblock %}

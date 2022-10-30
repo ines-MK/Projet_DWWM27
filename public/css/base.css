@@ -45,13 +45,23 @@ h1{
 
 /*---Rubriques*/
 
-.navbar .rubriques .input-icon{
+.rubriques .input-icon{
     display: flex;
     justify-content: end;
     margin: -28px 20px 20px 0;
 }
 
-.navbar .rubriques .input-icon input:hover{
+.rubriques .deconnexion i{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px -60px -35px 0 ;
+    padding:9px 0 9px 9px;
+    color:#ffffff;
+    right: 100px;
+}
+
+.rubriques .input-icon input:hover, .deconnexion i:hover{
     color:#FCF0D7;
 }
 
@@ -93,6 +103,10 @@ h1{
 
 /*--------------- FOOTER ----------------*/
 
+.content footer{
+    bottom: 0;
+}
+
 .content .footer-right{
     background-color: #6f5843cb;
     box-shadow: 1px 2px 6px 1px #6f584311 inset;
@@ -112,6 +126,7 @@ h1{
 
 .content .footer-right p{
     color: #FCF0D7;
+    margin-top: 10px;
 }
 
 .content .footer-right a:hover{
@@ -119,12 +134,36 @@ h1{
     transition: 0.2s;
 }
 
-.content .text-center input{
+.content form{
+    width: 500px;
+    height: 55px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.content form input{
+    flex: 1;
     border-radius: 50px;
     border: none;
     outline: none;
     padding: 2% 2% 2% 4%;
+    padding-left: 30px;
     background-color: #fcf0d7c9;
+}
+
+.content form button{
+    width: 60px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    margin: 4px;
+    background-color:#6F5843;
+    color: #FCF0D7;
+}
+
+.content form button:hover{
+    background-color: #c1997187;
+    transition: 0.2s;
 }
 
 .content .payment img{

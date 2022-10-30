@@ -48,10 +48,16 @@ nav a:hover{
     color: #dfc1a5;
     background:rgba(0, 0, 0, 0.27);
     margin: 30px;
-    margin-left: 100px;
     padding: 5%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+.admin_home h2{
+    color: #FCF0D7;
+    font-family:'Sitka Small', Bold;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.200);
 }
 
 /*------------------------ TABLEAU PAGE PRODUIT --------------------------*/

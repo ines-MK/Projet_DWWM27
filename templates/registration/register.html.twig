@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/register.css')}}">{% endblock %}
+
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1 class="text-center">Inscription</h1>
+
+    <div id="inscription">
+        {{ form_start(registrationForm) }}
+        <div class="row">
+            <div class="col-3 offset-3">
+                {{ form_row(registrationForm.first_name, {'label': 'Prénom'}) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(registrationForm.last_name, {'label': 'Nom'}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-3">
+                {{ form_row(registrationForm.email) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(registrationForm.phone, {'label': 'Téléphone'}) }}
+                
+            </div>   
+        </div>
+         <div class="col-6 offset-3">
+            {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe'}) }}
+         </div>
+        <div class="offset-3">
+            {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
+        </div>
+        <div class="offset-8">
+            <button type="submit" class="btn m-3" id="inscription_btn">S'inscrire</button>
+        </div>
+        
+
+        
+    {{ form_end(registrationForm) }}
+    </div>
+    
+{% endblock %}

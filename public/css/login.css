@@ -3,7 +3,6 @@ body{
     background-size: cover;
 }
 
-
 /* ---------------- MAIN ---------------- */
 
 h1{
@@ -13,7 +12,7 @@ h1{
     margin-bottom: 3vh;
 }
 
-form{
+.login{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -26,15 +25,15 @@ form .email input, .password input{
     width: 22vw;
     height: 8vh;
     margin-bottom: 40px;
-    padding-left: 1%;
+    padding-left: 5%;
     box-shadow: -2px 2px 4px 0px #00000035  inset;
     outline-color:#F6D0A1;
 }
 
-form input::placeholder{
+form .email input::placeholder, .password input::placeholder{
     color: #6f584367;
 }
-
+/* ----------------- A SUPPRIMER !!! ------------------
 .password-icon{
     display: flex;
     align-items: center;
@@ -45,10 +44,9 @@ form input::placeholder{
     color:#6F5843;
     transition: all 0.2s;
 }
-
 .connection .password-icon .feather-eye-off{
     display: none;
-}
+} */
 
 .valider .btn-secondary{
     background-color: #6F5843;

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Validation Panier{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/validation.css')}}">{% endblock %}
+
+{% block body %}<h1 class="text-center">Validation</h1>
+
+<div class="row w-100" id="row">
+    <div class="col-6 p-5" id="panier">
+        <h2 class="text-center">Panier</h2>
+    <table class="table text-center">
+        <thead>
+            <th>Nom</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+        </thead>
+    {% for element in cart.elements %}
+    
+        <tbody>
+            <tr>
+                <td>{{ element.product.name }}</td>
+                <td>{{ element.quantity }}</td>
+                <td>{{ element.product.price }} €</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>TOTAL :</th>
+                <th>{{ cart.total }} €</th>
+            </tr>
+        </tfoot>
+</table>
+</div>
+
+<div class="col-6 p-5" id="livraison">
+    <h2 class="text-center">Livraison</h2>
+    {{ form_start(cartValidationForm) }}
+        {{ form_row(cartValidationForm.
+            billing_address, {
+                'label': "Adresse de facturation"
+            })}}
+
+            {{ form_row(cartValidationForm.
+                delivery_address, {
+                    'label': "Adresse de livraison"
+                })}}
+
+                {{ form_row(cartValidationForm.
+                    carrier, {
+                        'label': "Transporteur"
+                    })}}
+    {{ form_end(cartValidationForm) }}
+</div>
+</div>
+
+<div class="row text-end" id="row">
+    <div class="col-12">
+    <button type="submit" class="validation"><a href="{{ path('payment') }}">Payer</a></button>
+</div>
+</div>
+
+
+{% endblock %}

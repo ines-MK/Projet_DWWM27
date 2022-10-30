@@ -4,13 +4,16 @@
 
 {% block body %}
 
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://js.stripe.com/v3/"></script>
+
 <script>
-    (function() {
-        const stripe = Stripe('pk_test_51LxUsiHFhbncnsKSeFnIu7PTDZ8r5SSQmm05AxQ2WpNLOz21kdhrfFK1MlptwXH2NqnqIYGzfxRWsyx2brCnWR6h00RK84MZPq');
-        stripe.redirectToCheckout({
-            sessionId: "{{ sessionId }}"
-        });
-    })();
+    var stripe = Stripe('pk_test_51LxUsiHFhbncnsKSeFnIu7PTDZ8r5SSQmm05AxQ2WpNLOz21kdhrfFK1MlptwXH2NqnqIYGzfxRWsyx2brCnWR6h00RK84MZPq');
+    stripe.redirectToCheckout({
+        sessionId: "{{ sessionId }}"
+    })
 </script>
 
 {% endblock %}
