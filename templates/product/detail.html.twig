@@ -17,11 +17,17 @@
          <div class="col-6">
                 <div class="card" id="p_pictures">
                         <div class="column">
-                        <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                            <img src="{{ asset('img/product/' ~ product.image) }}" alt="Image Principale du produit {{ product.name }}">
                             <div class="mini">
-                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
-                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
-                                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image/png">
+                                {% if product.image1 != null %} {# Si mon champ img est null n'essaie pas d'afficher d'img, affiche que s'il est diff de null #}
+                                    <img src="{{ asset('img/product/' ~ product.image1) }}" alt="Image Secondaire 1 du produit {{ product.name }}">
+                                {% endif %}
+                                {% if product.image1 != null %}
+                                    <img src="{{ asset('img/product/' ~ product.image2) }}" alt="Image Secondaire 2 du produit {{ product.name }}">
+                                {% endif %}
+                                {% if product.image1 != null %}
+                                    <img src="{{ asset('img/product/' ~ product.image3) }}" alt="Image Secondaire 3 du produit {{ product.name }}">
+                                {% endif %}
                             </div>
                         </div>
                 </div>
@@ -40,8 +46,8 @@
                             <span class="fs-7 text-danger">Rupture de stock</span>
                             {% endif %}
                         </p>  
-                      <a href="{{ path('cart_add', {'id': product.id}) }}"><button type="button" class="btn btn-secondary">Ajouter au panier</button></a>
-                      <a href="#"><button type="button" class="btn btn-success">Acheter</button></a> 
+                      <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-secondary-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}" style=" background-color:#C19971; color:#ffff;">Ajouter au panier</a>
+                      <a href="{{ path('payment') }}"><button type="button" class="btn btn-success">Acheter</button></a> 
                     </div>
                 </div>
             </div>

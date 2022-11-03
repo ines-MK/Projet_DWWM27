@@ -4,7 +4,7 @@ h1{
 
 .panier{
     height: 35vh;
-    margin: 100px;
+    margin: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,6 @@ h1{
 
 .table{
     width: 50vw;
-    margin-left: 50px;
 }
 
 .table thead th{
@@ -20,8 +19,14 @@ h1{
     color: #FCF0D7;
 }
 
-table th{
-    width: 100px;
+td{
+    margin-top: 30px;
+}
+
+.table td img{
+    max-height: 100px;
+    object-fit: contain;
+    border-radius: 50px;
 }
 
 tfoot{

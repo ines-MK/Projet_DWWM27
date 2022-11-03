@@ -7,11 +7,12 @@ body{
     background-size: cover;
 }
 
-/*---------------------------------------- HEADER -----------------------------------------*/
-
-header{
-    background-color: #776c5c;
+h1{
+    color: #6F5843;
+    margin-left: 120px;
 }
+
+
 
 /*---------------------------------------- BASE ADMIN // NAV -----------------------------------------*/
 
@@ -25,7 +26,6 @@ nav{
     top: 0;
     padding-top: 8%;
     position: fixed;
-    z-index: -1;
 }
 
 nav ul li, a{
@@ -34,23 +34,23 @@ nav ul li, a{
     color: #FCF0D7;
 }
 
-img{
-    width: 70vw;
-    height: 70vh;
-    margin-top: 20px;
+td img{
+    width: 7vw;
+    object-fit: contain;
+    border-radius: 50px;
+    margin: 20px 0 20px 0;
 }
 
 nav a:hover{
-    color:#6F5843
+    color:#C19971;
 }
 
 .admin_home{
     color: #dfc1a5;
     background:rgba(0, 0, 0, 0.27);
-    margin: 30px;
+    margin-left: 130px;
     padding: 5%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -64,19 +64,15 @@ nav a:hover{
 #liste{
     color:#6F5843;
     margin-bottom: 48px;
-    margin-left: 10%;
+    display: flex;
+    justify-content: center;
 }
 
 .table{
     background-color: rgba(0, 0, 0, 0.408);
     color: #dfc1a5;
-    margin-left: 10%;
-}
-
-td img{
-    width: 10vw;
-    height: 20vh;
-    border-radius: 50%;
+    width: 80vw;
+    margin-left: 145px;
 }
 
 .btn-light a{

@@ -8,17 +8,18 @@
 
 <div class="row w-100" id="row">
     <div class="col-6 p-5" id="panier">
-        <h2 class="text-center">Panier</h2>
+        <h2 class="text-center">Votre panier</h2>
     <table class="table text-center">
         <thead>
+            <th></th>
             <th>Nom</th>
             <th>Quantité</th>
             <th>Prix</th>
         </thead>
-    {% for element in cart.elements %}
-    
-        <tbody>
+    {% for element in cart %}
+        <tbody class="align-middle">
             <tr>
+                <td><img src="{{ asset('img/product/' ~ element.product.image) }}" alt="Image Principale du produit {{ element.product.name }}"></td>
                 <td>{{ element.product.name }}</td>
                 <td>{{ element.quantity }}</td>
                 <td>{{ element.product.price }} €</td>
@@ -28,8 +29,9 @@
         <tfoot>
             <tr>
                 <th></th>
+                <th></th>
                 <th>TOTAL :</th>
-                <th>{{ cart.total }} €</th>
+                <th>{{ total }} €</th>
             </tr>
         </tfoot>
 </table>

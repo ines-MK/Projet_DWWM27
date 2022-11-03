@@ -44,16 +44,22 @@
                                 <li class="py-4"><a href="{{ path('app_admin_payment_request_index') }}" title="Gestion des paiements"><i class="fa-regular fa-credit-card"></i></a></li>
                                 <li class="py-4"><a href="#" title="Utilisateurs"><i class="bi bi-person-plus fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('home') }}" title="Accueil du site"><i class="bi bi-house-door fs-4"></i></a></li>
-                                <li class="py-4"><a href="#" title="Déconnexion"><i class="bi bi-box-arrow-left fs-4"></i></a></li>
+                                <li class="py-4"><a href="{{ path('logout') }}" title="Déconnexion"><i class="bi bi-box-arrow-left fs-4"></i></a></li>
                             </ul>
               </nav>
-                
-              <div class="col-11">
-                <div class="row p-5">
+                </div>
+                {% for label, messages in app.flashes %} {# Affiche tous les msg #}
+                {% for message in messages %}
+                    <div class="flash-{{ label }} bg-{{ label }} text-light text-center rounded p-1 mb-5" style="width: 230px;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% endfor %}
+
+                <div class="col-12 p-5">
                     {% block body %}{% endblock %}
                 </div>
-            </div>
-            </div>
+            
         </main>
 
         <footer></footer>

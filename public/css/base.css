@@ -86,14 +86,12 @@ h1{
 .rubriques ul{
     display: flex;
     list-style: none;
-
 }
 
 .rubriques a{
     text-decoration: none;
     color: #6F5843;
-    margin-left: 30px;
-    
+    margin-left: 25px;
 }
 
 .rubriques a:hover{

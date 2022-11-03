@@ -19,9 +19,6 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 45)]
-    private ?string $picture = null;
-
     #[ORM\Column]
     private ?float $price = null;
 
@@ -39,6 +36,18 @@ class Product
 
     #[ORM\Column(nullable: true)]
     private ?int $quantity = null;
+
+    #[ORM\Column(length: 45, nullable: true)]
+    private ?string $image_1 = null;
+
+    #[ORM\Column(length: 45, nullable: true)]
+    private ?string $image_2 = null;
+
+    #[ORM\Column(length: 45, nullable: true)]
+    private ?string $image_3 = null;
+
+    #[ORM\Column(length: 45)]
+    private ?string $image = null;
 
     public function __construct()
     {
@@ -58,18 +67,6 @@ class Product
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
 
         return $this;
     }
@@ -160,6 +157,54 @@ class Product
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getImage1(): ?string
+    {
+        return $this->image_1;
+    }
+
+    public function setImage1(?string $image_1): self
+    {
+        $this->image_1 = $image_1;
+
+        return $this;
+    }
+
+    public function getImage2(): ?string
+    {
+        return $this->image_2;
+    }
+
+    public function setImage2(?string $image_2): self
+    {
+        $this->image_2 = $image_2;
+
+        return $this;
+    }
+
+    public function getImage3(): ?string
+    {
+        return $this->image_3;
+    }
+
+    public function setImage3(?string $image_3): self
+    {
+        $this->image_3 = $image_3;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

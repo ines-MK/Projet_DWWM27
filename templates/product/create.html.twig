@@ -1,0 +1,86 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block title %}Ajout produits{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/form_product.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    {{ form_start(productForm) }}
+    <h1 class="text-center mt-2" style="margin-bottom: 70px;">Ajout d'un nouveau produit</h1>
+    <div class="row" id="createForm" style="display: flex; justify-content: center; margin-left: 120px; color:#F6D0A1; text-shadow: 1px 3px 5px rgb(67, 31, 7);">
+        <div class="row">
+            <div class="col-4">
+            {{ form_row(productForm.name, {
+                'label': 'Nom',
+                'attr':{'placeholder':'Ex.: Musc Monoï'},
+            }) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(productForm.quantity, {
+                'label': 'Quantité',
+                'attr':{'placeholder':'Ex.: 73'},
+                'min': 0
+                        })}}
+        </div>
+        <div class="col-4">
+            {{ form_row(productForm.price,  {
+                'label':'Prix (en €)',
+                'attr':{'placeholder':'Ex.: 59,99'}
+            })}}
+        </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-3">
+            {{ form_row(productForm.image, {
+                'label': 'Image Principale (obligatoire)',
+                'attr':{'placeholder':'Ex.: image.png'},
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(productForm.image1, {
+                'label': 'Image Secondaire 1 (optionnel)',
+                'attr':{'placeholder':'Ex.: image1.png'},
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(productForm.image2, {
+                'label': 'Image Secondaire 2 (optionnel)',
+                'attr':{'placeholder':'Ex.: image2.png'},
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(productForm.image3, {
+                'label': 'Image Secondaire 3 (optionnel)',
+                'attr':{'placeholder':'Ex.: image3.png'},
+            }) }}
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+            {{ form_row(productForm.description,  {
+                'label':'Description',
+                'attr':{'placeholder':'Ex.: Lorem blablbalba'}
+            })}}
+        </div>
+        <div class="col-6">
+            {{ form_row(productForm.abstract,  {
+                'label':'Résumé',
+                'attr':{'placeholder':'Ex.: Lorem BLALBALBLA'}
+            })}}
+        </div>
+        </div>
+
+    <div class="row">
+        <div class="col-12 text-end">
+            <a href="{{ path('admin_products')}}" class="btn btn-secondary">Annuler</a>
+            <button class="btn btn-success me-5">Créer</button>
+        </div>
+    </div>
+
+    {{ form_end(productForm) }} {# Tous les champs non préciser symfony les mets automatiquement en dessous #}
+
+{% endblock %}

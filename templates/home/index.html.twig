@@ -27,9 +27,9 @@
                             {% for product in products %}
                             <a href="{{ path('product_detail' , {'slug' : product.slug }) }}">
                                     <div class="card">
-                                        <img src="{{ asset('img/product/Monoï.png') }}" alt="Musc Monoï png">
+                                        <img src="{{ asset('img/product/' ~ product.image) }}" alt="Image Principale du produit {{ product.name }}">
                                         <h6>{{product.name}}</h6>
-                                        <p>{{product.price}}</p>
+                                        <p>{{product.price}}€</p>
                                     </div>
                                 </a>    
                             {% endfor %}

@@ -1,71 +1,95 @@
 <?php
 
-namespace App\Service;
+namespace App\Service; // sert à définir ou se trouve la class
 
-use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class CartService
 {
+    protected $requestStack; // sessionInterface est devenu requestStack
+    protected $productRepository;
 
-    private $sessionInterface;
-
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->sessionInterface = $requestStack->getSession();
+    public function __construct(RequestStack $requestStack, ProductRepository $productRepository) {
+        $this->requestStack = $requestStack;
+        $this->productRepository = $productRepository;
     }
 
-    public function get()
-    {
-        return $this->sessionInterface->get('cart', [
-            'elements' => [],
-            'total' => 0.0
-        ]);
-    }
 
-    public function add(Product $product)
+    public function add(int $id): void // cette methode fait exactement la même chose que celle du controlleur mais sans le "return"
     {
-        $cart = $this->get();
-        $productId = $product->getId();
-
-        if (!isset($cart['elements'][$productId]))
-        {
-            $cart['elements'][$productId] = [
-                'product' => $product,
-                'quantity' => 0
-            ];
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if (!empty($cart[$id])) {
+            $cart[$id]++;
+        } else {
+            $cart[$id] = 1;
         }
-
-        $cart['total'] = $cart['total'] + $product->getPrice();
-        $cart['elements'][$productId]['quantity'] = $cart['elements'][$productId]['quantity'] + 1;
-
-        $this->sessionInterface->set('cart', $cart);
+        $this->requestStack->getSession()->set('cart', $cart);
     }
 
-    public function remove(Product $product)
+    public function remove(int $id): void
     {
-        $cart = $this->get();
-        $productId = $product->getId();
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if (!empty($cart[$id])) { 
+            if ($cart[$id] > 1) { 
+                $cart[$id]--; 
+            }
+            else {
+                unset($cart[$id]);
+            }
+        }
+        $this->requestStack->getSession()->set('cart', $cart);
+    }
+
+    public function delete(int $id): void
+    {
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if (!empty($cart[$id])) {
+            unset($cart[$id]);
+        }
+        $this->requestStack->getSession()->set('cart', $cart);
+    }
+
+
+    public function clear(): void
+    {
+        $this->requestStack->getSession()->remove('cart');
+    }
         
-        if(!isset($cart['elements'][$productId]))
-        {
-            return;
+    public function getCart(): array 
+    {
+        $sessionCart = $this->requestStack->getSession()->get('cart', []);
+        $cart = [];
+        foreach ($sessionCart as $id => $quantity) {
+            $product = $this->productRepository->find($id);
+            $element = [
+                'product' => $product,
+                'quantity' => $quantity
+            ];
+            $cart[] = $element;
         }
-
-        $cart['total'] = $cart['total'] - $product->getPrice();
-        $cart['elements'][$productId]['quantity'] = $cart['elements'][$productId]['quantity'] - 1;
-
-        if ($cart['elements'][$productId]['quantity'] <= 0)
-        {
-            unset($cart['elements'][$productId]);
-        }
-
-        $this->sessionInterface->set('cart', $cart);
+        return $cart;
     }
 
-    public function clear()
+    public function getTotal(): float
     {
-        $this->sessionInterface->remove('cart');
+        $sessionCart = $this->requestStack->getSession()->get('cart', []);
+        $total = 0;
+        foreach ($sessionCart as $id => $quantity) {
+            $product = $this->productRepository->find($id);
+            $total += $product->getPrice() * $quantity;
+        }
+        return $total;
+    }
+
+    public function getNbProducts(): int
+    {
+        $sessionCart = $this->requestStack->getSession()->get('cart', []);
+        $nb = 0; // initialisation nb de produits qui vaut 0
+        foreach ($sessionCart as $id => $quantity) { // je boucle dans mon panier, ici j'ai une association clé valeur
+            $nb += $quantity;
+        }
+        return $nb;
     }
 }
+

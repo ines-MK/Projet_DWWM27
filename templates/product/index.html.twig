@@ -11,7 +11,7 @@
     <div class="cards row col-12">
         {% for product in products %}
                 <div class="card">
-                    <img src="{{ asset('img/product/Monoï.png') }}" alt="Image Musc Classique png">
+                    <img src="{{ asset('img/product/' ~ product.image) }}" alt="Image Principale du produit {{ product.name }}">
                         <div class="right text-center">
                             <h5>{{product.name|u.truncate(15, false)}}</h5>
                                 <p>

@@ -1,0 +1,25 @@
+#createForm input, #createForm textarea{
+    background-color: #fcf0d7a2;
+    border: none;
+}
+
+#createForm input::placeholder, #createForm textarea::placeholder{
+    color: #6f584390;
+}
+
+.btn{
+    border: none;
+}
+
+.btn:hover{
+    background-color: #FCF0D7;
+    color: #6F5843;
+}
+
+.btn-secondary{
+    background-color:#6F5843;
+    
+}
+.btn-success{
+    background-color:#C19971;
+}

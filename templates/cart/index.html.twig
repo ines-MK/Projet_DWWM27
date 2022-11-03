@@ -8,56 +8,60 @@
 
 {% block body %}
 <h1 class="text-center">Panier</h1>
-{% if cart.elements %}
-<div class="panier">
+{% if cart %}
     
+<div class="panier">
 <table class="table text-center">
     <thead>
+        <th></th>
         <th scope="col">Nom</th>
         <th scope="col">Quantité</th>
         <th scope="col">Prix</th>
+        <th></th>
     </thead>
-    
-<tbody>
-    {% for element in cart.elements %}
+    <tfoot>
     <tr>
+        <th></th>
+        <th></th>
+        <th>TOTAL : </th>
+        <th>{{ total }} €</th>
+        <th></th>
+    </tr>
+</tfoot>
+<tbody>
+
+    {% for element in cart %}
+
+    
+    <tr class='align-middle'>
+        <td>
+            <img src="{{ asset('img/product/' ~ element.product.image) }}" alt="Image Principale du produit {{ element.product.name }}">
+        </td>
         <td>{{ element.product.name }}</td>
         <td>
            <a href="{{ path('cart_remove', {'id': element.product.id}) }}"><i class="bi bi-dash-circle text-danger"></i></a>
-        {{ element.quantity }}
-        <a href="{{ path('cart_add', {'id': element.product.id}) }}"><i class="bi bi-plus-circle text-success"></i></a> 
+        {{ element.quantity }} {# Pour la quantité elle est pas dans le produit mais stocker dans mon éléments donc pas besoin de passer par element.product.quantity #}
+        <a href="{{ path('cart_add', {'id': element.product.id}) }}"><i class="bi bi-plus-circle text-success"></i></a>
         </td>
         
 
-        <td>{{ element.product.price }} €</td>
+        <td>{{ element.product.price }} €</td> 
+        <td><a href="{{ path('cart_delete', {'id': element.product.id}) }}"><i class="fa-solid fa-trash-can" style="color: #b76c6c;"></i></a></td> 
     </tr>
-    
-    {% endfor %}
 </tbody>
-<tfoot>
-    <tr>
-        <th></th>
-        <th>TOTAL : </th>
-        <th>{{ cart.total }} €</th>
-    </tr>
-</tfoot>
-
+{% endfor %}
 {% else %}
-
 <div class="clear_cart">
-            Votre panier est vide
+    Votre panier est vide
 </div>
-        
-{% endif %}    
+{% endif %}
 </table>
 </div>
-<div class="add_remove_cart">
-    <div class="col-10 text-end">
-        <a href="{{ path('cart_validation') }}" class="btn btn-success">Valider le panier</a>
-        <a href="{{ path('cart_clear') }}" class="btn btn-danger">Vider le panier</a>
+
+    <div class="add_remove_cart">
+        <div class="col-10 text-end">
+            <a href="{{ path('cart_validation') }}" class="btn btn-success">Valider le panier</a>
+            <a href="{{ path('cart_clear') }}" class="btn btn-danger">Vider le panier</a>
+        </div>
     </div>
-</div>
-
-
-
 {% endblock %}

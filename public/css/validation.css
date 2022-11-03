@@ -6,18 +6,24 @@ h1, h2{
     margin: 0;
 }
 
-#panier{
-    margin-top: 100px;
-}
-
 #panier tbody{
     background-color: #6f584345;
     color:#6F5843;
 }
 
+#panier tbody tr td img{
+    max-height: 100px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
 #panier thead, tfoot{
     background-color: #6f5843b0;
     color: #FCF0D7;
+}
+
+.table{
+    margin-top: 45px;
 }
 
 #livraison label{

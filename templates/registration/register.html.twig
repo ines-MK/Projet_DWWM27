@@ -22,6 +22,9 @@
                 {{ form_row(registrationForm.last_name, {'label': 'Nom'}) }}
             </div>
         </div>
+        <div class="col-6">
+            {{ form_start(contactForm) }}
+        </div>
         <div class="row">
             <div class="col-3 offset-3">
                 {{ form_row(registrationForm.email) }}
@@ -31,9 +34,15 @@
                 
             </div>   
         </div>
-         <div class="col-6 offset-3">
-            {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe'}) }}
+        <div class="row">
+            <div class="col-3 offset-3">
+            {{ form_row(registrationForm.plainPassword.first, {'label': 'Mot de passe'}) }}
          </div>
+         <div class="col-3">
+            {{ form_row(registrationForm.plainPassword.second, {'label': 'Répétez votre mot de passe'}) }}
+         </div>
+        </div>
+         
         <div class="offset-3">
             {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
         </div>

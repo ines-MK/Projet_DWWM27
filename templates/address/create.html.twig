@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddressController!{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Ajouter une adresse</h1>
+<div class="contact">
+    {{ form_start(addressForm) }}
+    <button type="submit" class="btn">Envoyer</button>
+    {{ form_end(addressForm) }}
+</div>
+{% endblock %}
