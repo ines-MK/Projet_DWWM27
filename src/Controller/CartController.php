@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CartController extends AbstractController
 {
     #[Route('/cart', name: 'cart')]
-    public function index(CartService $cartService, ProductRepository $productRepository): Response
+    public function index(CartService $cartService): Response
     {
             return $this->render('cart/index.html.twig', [
                 'cart' => $cartService->getCart(),
@@ -23,7 +23,7 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/add/{id}', name: 'cart_add')]
-    public function add(CartService $cartService, ProductRepository $productRepository, int $id, Request $request): Response
+    public function add(CartService $cartService, int $id, Request $request): Response
     {
         $cartService->add($id);
         $this->AddFlash('success', 'L\'article a bien été ajouté au panier');
@@ -34,7 +34,7 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/remove/{id}', name: 'cart_remove')]
-    public function remove(CartService $cartService, ProductRepository $productRepository, int $id): Response
+    public function remove(CartService $cartService, int $id): Response
     {
         $cartService->remove($id);
         $this->AddFlash('success', 'L\'article a bien été supprimé du panier');
@@ -42,10 +42,10 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/delete/{id}', name: 'cart_delete')]
-    public function delete(CartService $cartService, ProductRepository $productRepository, int $id): Response
+    public function delete(CartService $cartService, int $id): Response
     {
         $cartService->delete($id);
-        $this->AddFlash('success', 'Le produit a bien été supprimé.');
+        $this->AddFlash('success', 'Le produit a bien été supprimé du panier.');
         return $this->redirectToRoute('cart');
     }
 
@@ -60,10 +60,10 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/validation', name:'cart_validation')]
-    public function validate(CartService $cartService):Response 
+    public function validate(Request $request, CartService $cartService):Response 
     {
         $cartValidationForm =$this->createForm(CartValidationType::class); // formulaire permettant de gérer les infos du style addresse de livraison/facturation etc.
-
+        $cartValidationForm->handleRequest($request);
         // récup donnée du form 
         // génere donnée en bdd
         // traite le transporteur comme un produit (+ ajoute au  panier)

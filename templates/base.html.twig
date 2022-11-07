@@ -31,14 +31,16 @@
         </header>
         
         <main>
-
+        <div class="col-3" style="margin-left: 50px;">
             {% for label, messages in app.flashes %} {# Affiche tous les msg #}
-            {% for message in messages %}
-                <div class="flash-{{ label }} bg-{{ label }} text-light rounded p-2 mb-5" style="width: 200px;">
-                    {{ message }}
-                </div>
-            {% endfor %}
-            {% endfor %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 rounded">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% endfor %}
+        </div>
+            
 
             {% block body %}{% endblock %}
 

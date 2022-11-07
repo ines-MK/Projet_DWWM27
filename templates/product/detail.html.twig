@@ -46,8 +46,8 @@
                             <span class="fs-7 text-danger">Rupture de stock</span>
                             {% endif %}
                         </p>  
-                      <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-secondary-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}" style=" background-color:#C19971; color:#ffff;">Ajouter au panier</a>
-                      <a href="{{ path('payment') }}"><button type="button" class="btn btn-success">Acheter</button></a> 
+                       <a href="{{ path('products') }}"><button type="button" class="btn btn-success">Retour</button></a> 
+                       <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-secondary-{{ product.quantity != 0 ? 'success' : 'danger disabled' }}" style=" background-color:#6F5843; color:#ffff;">Ajouter au panier</a>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Stripe\StripeClient;
 use App\Service\CartService;
-use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,10 +12,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PaymentController extends AbstractController
 {
     #[Route('/payment', name: 'payment')]
-    public function index(Request $request, CartService $cartService, ProductRepository $productRepository): Response
+    public function index(Request $request, CartService $cartService): Response
     {
         // dd($request->headers->get('referer'));
-        if ($request->headers->get('referer') !== 'https://127.0.0.1/cart/validation') {
+        if ($request->headers->get('referer') !== 'https://127.0.0.1:8000/cart/validation') {
             return $this->redirectToRoute('cart');
         }
 

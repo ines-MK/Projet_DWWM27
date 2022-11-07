@@ -115,7 +115,6 @@ class ProductType extends AbstractType
                     'maxLenght' => 65535
                 ]
             ])
-            // ->add('slug')
             ->add('abstract', TextareaType::class, [
                 'attr' => [
                     'max' => 255

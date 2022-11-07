@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Espace{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/user.css')}}">{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Mon Espace</h1>
+
+    <div class="row" id="espace_user">
+        <h2 class="text-center m-3">Hello {{ app.user.FirstName }} bienvenue dans ton espace ! </h2>
+        
+        <div class="row">
+
+            <div class="col-6">
+                <h3 class="text-center m-3">Informations personnelles</h3>
+                <div class="text-center" id="perso">
+                <a href="{{ path('user_address') }}">Mes Adresses</a>
+                <br>
+                <a href="{{ path('app_forgot_password_request') }}">Modifier mon mot de passe</a>
+                </div>
+            </div>
+            
+            
+            <div class="col-6">
+                <h3 class="text-center m-3">Mes commandes</h3>
+            </div>
+            
+        </div>
+        
+        
+
+    </div>
+    
+    
+    
+{% endblock %}

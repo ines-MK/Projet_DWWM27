@@ -4,18 +4,23 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Form\AddressType;
+use App\Repository\AddressRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class AddressController extends AbstractController
 {
     #[Route('/address', name: 'address')]
-    public function index(): Response
+    public function index(AddressRepository $addressRepository): Response
     {
-        return $this->render('address/index.html.twig');
+        $addresses = $addressRepository->findAll();
+        return $this->render('address/index.html.twig', [
+            'addresses' => $addresses,
+        ]);
     }
 
     #[Route('/address/add', name: 'address_add')]
@@ -43,4 +48,14 @@ class AddressController extends AbstractController
         
         ]);
     }
+
+    // #[Route('/address/user/{id]', name: 'address_user')]
+    // public function userAddress(AddressRepository $addressRepository): Response
+    // {
+    //     $addresses = $addressRepository->findBy();
+
+    //     return $this->render('address/userAddress.html.twig', [
+    //         'addresses' => $addresses  
+    //     ]);
+    // }
 }

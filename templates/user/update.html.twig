@@ -1,0 +1,51 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modification utilisateurs{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/user.css')}}">{% endblock %}
+
+{% block body %}
+
+<h1 id="liste">Modifier un utilisateur</h1>
+{{ form_start(userForm) }}
+
+<div class="row">
+    <div class="col-4">
+        {{ form_row(userForm.first_name, {'label': 'Prénom'}) }}
+    </div>
+    <div class="col-4">
+        {{ form_row(userForm.last_name, {'label': 'Nom'}) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        {{ form_row(userForm.email) }}
+    </div>
+    <div class="col-4">
+        {{ form_row(userForm.phone, {'label': 'Numéro de téléphone'}) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        {{ form_row(userForm.plainPassword.first, {'label': 'Mot de passe'}) }}
+    </div>
+    <div class="col-4">
+        {{ form_row(userForm.plainPassword.second, {'label': 'Répétez votre mot de passe'}) }}
+    </div>
+</div>
+
+<div class="offset-3">
+    {{ form_row(userForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
+</div>
+
+<div class="row">
+    <div class="col-12 text-end">
+        <a href="{{ path('admin_users')}}" class="btn btn-secondary">Annuler</a>
+        <button type="submit" class="btn btn-secondary">Modifier</button>
+    </div>
+</div>
+{{ form_end(userForm) }}
+
+{% endblock %}

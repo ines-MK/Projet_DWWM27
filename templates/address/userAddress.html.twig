@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Adresses{% endblock %}
+
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/address.css') }}">{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Mes Adresses</h1>
+<div class="address_list">
+    {% for address in addresses %}
+<div class="column">
+    {{ address.address }}, {{ address.city }} - {{ address.zip }}, {{ address.country }}
+</div>
+{% endfor %}
+<a href="{{ path('address_add') }}">Ajouter une addresse</a>
+</div>
+
+{% endblock %}

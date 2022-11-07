@@ -101,12 +101,7 @@ main .right .button a{
     align-items: center;
 }
 
-.detail_product .btn-secondary{
-    background-color:#C19971;
-    
-}
-
 .detail_product .btn-success{
-    background-color: #6F5843;
+    background-color:#C19971; 
     border: none;
 }

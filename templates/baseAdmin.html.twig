@@ -40,21 +40,25 @@
                     <nav class="col-1">
                             <ul class="p-0 mt-4">
                                 <li class="py-4"><a href="{{ path('admin') }}" title="Accueil administrateur"><i class="bi bi-house fs-4"></i></a></li>
-                                <li class="py-4"><a href="{{ path('admin_products') }}" title="Produits"><i class="bi bi-bag-plus fs-4"></i></a></li>
-                                <li class="py-4"><a href="{{ path('app_admin_payment_request_index') }}" title="Gestion des paiements"><i class="fa-regular fa-credit-card"></i></a></li>
-                                <li class="py-4"><a href="#" title="Utilisateurs"><i class="bi bi-person-plus fs-4"></i></a></li>
+                                <li class="py-4"><a href="{{ path('admin_products') }}" title="Produits"><i class="bi bi-tags fs-4"></i></a></li>
+                                <li class="py-4"><a href="{{ path('app_admin_payment_request_index') }}" title="Paiements"><i class="fa-regular fa-credit-card fs-5"></i></a></li>
+                                <li class="py-4"><a href="{{ path('admin_orders') }}" title="Commandes"><i class="bi bi-basket fs-4"></i></a></li>
+                                <li class="py-4"><a href="{{ path('admin_users') }}" title="Utilisateurs"><i class="bi bi-person-plus fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('home') }}" title="Accueil du site"><i class="bi bi-house-door fs-4"></i></a></li>
-                                <li class="py-4"><a href="{{ path('logout') }}" title="Déconnexion"><i class="bi bi-box-arrow-left fs-4"></i></a></li>
+                                <li class="py-4"><a href="{{ path('logout') }}" title="Déconnexion"><i class="bi bi-box-arrow-left text-danger fs-4"></i></a></li>
                             </ul>
               </nav>
                 </div>
-                {% for label, messages in app.flashes %} {# Affiche tous les msg #}
-                {% for message in messages %}
-                    <div class="flash-{{ label }} bg-{{ label }} text-light text-center rounded p-1 mb-5" style="width: 230px;">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-                {% endfor %}
+                <div class="col-3" style="margin-left: 50px;">
+                    {% for label, messages in app.flashes %} {# Affiche tous les msg #}
+                        {% for message in messages %}
+                            <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 rounded">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        {% endfor %}
+                </div>
+                    
 
                 <div class="col-12 p-5">
                     {% block body %}{% endblock %}

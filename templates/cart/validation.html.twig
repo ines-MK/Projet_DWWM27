@@ -14,7 +14,7 @@
             <th></th>
             <th>Nom</th>
             <th>Quantité</th>
-            <th>Prix</th>
+            <th class="col-3">Prix</th>
         </thead>
     {% for element in cart %}
         <tbody class="align-middle">
@@ -50,8 +50,7 @@
                     'label': "Adresse de livraison"
                 })}}
 
-                {{ form_row(cartValidationForm.
-                    carrier, {
+                {{ form_row(cartValidationForm.carrier, {
                         'label': "Transporteur"
                     })}}
     {{ form_end(cartValidationForm) }}
@@ -60,7 +59,7 @@
 
 <div class="row text-end" id="row">
     <div class="col-12">
-    <button type="submit" class="validation"><a href="{{ path('payment') }}">Payer</a></button>
+    <button type="submit" class="validation"><a href="{{ path('payment') }}" class="text-light">Payer</a></button>
 </div>
 </div>
 

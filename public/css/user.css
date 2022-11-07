@@ -1,0 +1,25 @@
+h1, h2{
+    color: #6F5843;
+}
+
+h3{
+    color: #C19971;
+}
+
+#espace_user{
+    background-color: #6f584319;
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+#perso{
+    width: 20vw;
+    background-color: #c199715a;
+    margin: 10px;
+}
+
+#perso a{
+    text-decoration: none;
+    color: #6F5843;
+}

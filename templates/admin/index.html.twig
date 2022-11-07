@@ -8,4 +8,13 @@
     <p>Veuillez séléctionner une rubrique dans le menu de gauche pour débuter 
        l'administration du site.</p>
 </div>
+
+<div class="col-6" style="margin-top: 30px;">
+    <h3 class="text-center m-3" style="color: #FCF0D7;">Informations personnelles</h3>
+    <div class="text-center" id="perso">
+    {# <a href="{{ path('user_address') }}">Mes Adresses</a> #}
+    <br>
+    <a href="{{ path('app_forgot_password_request') }}">Modifier mon mot de passe</a>
+    </div>
+</div>
 {% endblock %}

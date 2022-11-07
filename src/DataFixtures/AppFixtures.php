@@ -16,18 +16,6 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $category = new Category();
-        $category->setName('Taille');
-        $category->setSlug('taille');
-        $manager->persist($category);
-
-        $manager->flush();
-
-        $faker = Factory::create();
-
-        $categories = $manager->getRepository 
-        (Category::class)->findAll();
-
         $slugger = new AsciiSlugger();
 
         for ($i = 1; $i <= 10; $i++) {

@@ -28,8 +28,8 @@
         <i class="fa fa-user"></i>
       </div>
       {% elseif is_granted('ROLE_USER') %}
-      <div class="input-icon" style="margin-right: -55px;">
-        <a href="#"><input type="button" value="Mon espace"></a>
+      <div class="input-icon" style="margin-right: -40px;">
+        <a href="{{ path('app_user') }}"><input type="button" value="Mon espace"></a>
         <i class="fa fa-user"></i>
       </div>
       {% endif %}
@@ -40,8 +40,9 @@
               <li><a href="{{ path('products') }}">Musc Tahara</a></li>
               <li><a href="{{ path('contact') }}">Nous contacter</a></li>
               <li style="margin-left: 10px;"><a href="{{ path('cart') }}" title="Panier"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i></a>
-              <span  style="background-color:#6cb77b; border-radius: 50px; color: #FCF0D7; padding: 0 5px 0 5px;">
+              
               {% if app.session.get('cart') is not empty %}
+              <span  style="background-color:#6cb77b; border-radius: 50px; color: #FCF0D7; padding: 0 5px 0 5px;">
               {{ render(controller('App\\Controller\\CartController::getNbProducts')) }}
               {% endif %}
               </span> 

@@ -47,13 +47,13 @@ class ProductController extends AbstractController
         $product = new Product(); // création nouveau produit
         $form = $this->createForm(ProductType::class, $product); // création formulaire avec en paramètre le nouveau produit à alimenter
         $form->handleRequest($request); // Gestionnaire de requêtes HTTP intercepter donnée entré dans le form en chargeant le gestionnaire de requete 
-
+    
         if ($form->isSubmitted() && $form->isValid()) { // traitement des données (detecte si le form à été envoyé et que les données sont valide)
             
             $products = $productRepository->findAll(); // récupere tous les produits en BDD
             $productNames = []; // initialise un tableau pour les noms de produits
-            foreach ($products as $product) { // pour chaque produit récup en BDD
-                $productNames[] = $product->getName(); // je stock le nom du produit à l'intérieur du tableau productName 
+            foreach ($products as $exestingProduct) { // pour chaque produit récup en BDD
+                $productNames[] = $exestingProduct->getName(); // je stock le nom du produit à l'intérieur du tableau productName 
             }
 
             if (in_array($form['name']->getData(), $productNames)) { // vérifie que le nom du produit à créer n'est pas déjà utilisé en BDD
@@ -80,7 +80,6 @@ class ProductController extends AbstractController
                 $infoImage1->move($this->getParameter('product_image_dir'), $nomImage1);
                 $product->setImage1($nomImage1); 
             }
-
             $infoImage2 = $form['image2']->getData();
             if($infoImage2 !== null) {
             $extensionImage2 = $infoImage->guessExtension();
@@ -88,7 +87,6 @@ class ProductController extends AbstractController
             $infoImage2->move($this->getParameter('product_image_dir'), $nomImage2);
             $product->setImage2($nomImage2);
             }
-
             $infoImage3 = $form['image3']->getData();
             if($infoImage3 !== null) {
             $extensionImage3 = $infoImage3->guessExtension();
@@ -108,7 +106,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('admin_products');
         }
         return $this->render('product/create.html.twig', [
-            'productForm' => $form->createView()// au niveau de ma vue j'apl le fomulaire 'productForm' qui a pour valeur la vue du formulaire
+            'productForm' => $form->createView()// au niveau de ma vue j'apl le formulaire 'productForm' qui a pour valeur la vue du formulaire
         ]);
     }
 
@@ -120,17 +118,6 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $products = $productRepository->findAll(); // récupere tous les produits en BDD
-            $productNames = []; // initialise un tableau pour les noms de produits
-            foreach ($products as $product) { // pour chaque produit récup en BDD
-                $productNames[] = $product->getName(); // je stock le nom du produit à l'intérieur du tableau productName 
-            }
-            
-            if (in_array($form['name']->getData(), $productNames)) { // vérifie que le nom du produit à créer n'est pas déjà utilisé en BDD
-                $this->addFlash('danger', 'Le produit n\'a pas pu être créé : le nom de produit est déjà utilisé');
-                return $this->redirectToRoute('admin_products');
-            }
 
             $infoImage = $form['image']->getData();
 
@@ -194,6 +181,7 @@ class ProductController extends AbstractController
             
             $slugger = new AsciiSlugger();
             $product->setSlug(strtolower($slugger->slug($form['name']->getData())));
+            
             $manager = $managerRegistry->getManager();
             $manager->persist($product);
             $manager->flush();
@@ -238,7 +226,7 @@ class ProductController extends AbstractController
         $manager = $managerRegistry->getManager();
         $manager->remove($product); // supprime le produit
         $manager->flush();
-        $this->addFlash('success', 'Le produit a bien été supprimé'); // msg de succès
+        $this->addFlash('success', 'Le produit a bien été supprimé.'); // msg de succès
         return $this->redirectToRoute('admin_products');// demande a doctrine de supp le produits
     }
 }
