@@ -3,15 +3,13 @@
 <p>
     <b>Pour finaliser votre inscription sur notre site nous vous invitons à confirmer votre adresse e-mail 
     en cliquant sur le bouton ci-dessous : &#128071;<br><br></b> 
-    <a href="{{ signedUrl }}" style="color:#fbf2e8; text-decoration: none;">Confirmer mon e-mail<button type="submit" style="padding: 10px; background-color:#6F5843; border: none; border-radius: 50px;" 
-            class="text-center"></a>.
-    </button>
+    <button type="submit" style="padding: 10px; background-color:#6F5843; border: none; border-radius: 50px;"class="text-center"><a href="{{ signedUrl }}" style="color:#fbf2e8; text-decoration: none;">Confirmer mon e-mail    
+    </a></button>
     <br><br>
     <b style="color: #b76c6c;">Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</b>
 </p>
 
-<p>Cordialement, <br><br>
+<p>Cordialement, 
+<br>
+<br>
 L'équipe El Rizana</p>
-
-{# <img src="{{ asset('img/ElRizanaLOGO.png') }}" alt="Logo de la société El Rizana"> #}
-{# <img src="{{ email.image('@images/ElRizanaLOGO.png') }}" alt="logo El Rizana"> #}

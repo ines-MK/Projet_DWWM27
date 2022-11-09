@@ -12,8 +12,8 @@
 <div class="col-12">
     <section class="centre">
     <h1>BIENVENUE</h1> 
-   <a href="{{ path('we') }}"><input type="button" value="Découvrir"></a> 
-</section>
+    <h6 class="text-end">Sublimez votre hygiène</h6> 
+    </section>
 </div>
 
 <!-- Fin de l'entête -->
@@ -38,29 +38,38 @@
         </section>
         
         <section class="col-12">
-            <div class="nous">
-                <div class="left">
-                    <h2>Notre histoire</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis deleniti 
-                    voluptates veniam modi cum ipsum ab perspiciatis exercitationem, minima 
-                    molestias? Incidunt ullam dolor id ipsam alias consequuntur magnam quia culpa.</p>
-                    <input type="button" value="En savoir plus">
-                </div>
-                <div class="right">
-                    <img src="{{ asset('img/kamel.jpg') }}" alt="Image/jpg">
-                </div> 
-            </div>
-            <div class="produits">
+            <div class="guide">
                 <div class="left col-3">
-                    <h2>Nos valeurs</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aspernatur 
-                       repudiandae officia totam nesciunt error delectus eaque, nostrum eum, temporibus 
-                       quidem fugit iure beatae ratione nobis modi assumenda quas quasi.</p>
-                       <input type="button" value="En savoir plus">
+                    <h2 class="text-center">Guide d'utilisation</h2>
+                    <p class="text-center">
+                        Imbiber la houpette en coton avec de l'eau. 
+                        <br>
+                         Appliquer une touche de musc sur la houpette. 
+                        <br>
+                          Tapoter superficiellement les parties intimes.*</p>
+                        <h3 class="text-center">Contre-indications <i class="bi bi-exclamation-triangle"></i></h3>
+                        <p class="text-center"> Le Musc ne doit pas toucher le vagin directement !*
+                            <br>
+                             Ne pas dépasser une application par jour.
+                            <br>
+                             Ne pas appliquer sur les jeunes enfants. 
+                            <br>
+                             Déconseillé chez la femme enceinte par précaution.</p>
                 </div>
                 <div class="right">
                     <img src="{{ asset('img/gold.jpg') }}" alt="Image/jpg">
                 </div>
+            </div>
+            
+            <div class="histoire">
+                <div class="left">
+                    <h2 class="text-center">Notre histoire</h2>
+                    <p class="text-center">Le Musc Intime sera pour la grande majorité des femmes RÉVOLUTIONNAIRE. En effet l’enjeux premier de la commercialisation de ces muscs est bien de permettre à toutes les femmes à travers le monde d’optimiser leur hygiène intime.</p>
+                    <a href="{{ path('we') }}"><input type="button" value="En savoir plus"></a>
+                </div>
+                <div class="right">
+                    <img src="{{ asset('img/kamel.jpg') }}" alt="Image/jpg">
+                </div> 
             </div>
         </section>
     </main>

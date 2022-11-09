@@ -3,23 +3,54 @@ h1, h2{
 }
 
 h3{
-    color: #C19971;
+    color: #6F5843;
+    font-weight: 400;
+}
+
+h5{
+    color: #FFFF;
+}
+
+#user{
+    display: flex;
+    justify-content: center;
+    color:#fcf4e2;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 1);
+}
+
+#user input{
+    background-color: #fcf4e2;
+    border: none;
+    border-radius: 50px;
 }
 
 #espace_user{
-    background-color: #6f584319;
     display: flex;
     justify-content: center;
     margin: 50px;
 }
 
-#perso{
+#address, #mdp{
     width: 20vw;
-    background-color: #c199715a;
+    background-color: #6f5843d7;
     margin: 10px;
+    padding: 10px;
+    color: #fcf4e2;
+    border-radius: 30px;
 }
 
-#perso a{
-    text-decoration: none;
-    color: #6F5843;
+#address a, #mdp a{
+    color: #FFFF;
+}
+
+#btn-secondary{
+    background-color: #6F5843;
+    border: none;
+    color: #fcf4e2;
+}
+
+#btn-success{
+    background-color:#C19971; 
+    border: none;
+    color: #fcf4e2;
 }

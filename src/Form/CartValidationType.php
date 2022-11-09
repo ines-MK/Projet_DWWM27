@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Address;
-use App\Entity\Carrier;
-use Doctrine\ORM\EntityRepository;
 use App\Repository\AddressRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Security\Core\Security;
@@ -46,13 +44,6 @@ class CartValidationType extends AbstractType
                 },
                 'choice_label' => function(Address $address) {
                     return $address->getAddress() . ' - ' . $address->getZip() . ' ' . $address->getCity();
-                }
-            ])
-            ->add('carrier', EntityType::class, 
-            [
-                'class' => Carrier::class,
-                'choice_label' => function(Carrier $carrier) {
-                    return $carrier->getName() . ' (' . number_format($carrier->getPrice(), 2, ',', ' ') . ' €)';
                 }
             ])
         ;

@@ -6,12 +6,12 @@
     margin: 50px;
 }
 
-#success p{
+#success span{
     display: flex;
     align-items: center;
     justify-content: center;
     color: #6F5843;
-    margin-bottom: 162px;
+    margin-bottom: 98px;
     font-weight: 600;
 }
 

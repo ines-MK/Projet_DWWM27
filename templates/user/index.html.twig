@@ -5,20 +5,33 @@
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/user.css')}}">{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Mon Espace</h1>
+    <h1 class="text-center">Bienvenue dans ton espace {{ app.user.FirstName }} !</h1>
 
     <div class="row" id="espace_user">
-        <h2 class="text-center m-3">Hello {{ app.user.FirstName }} bienvenue dans ton espace ! </h2>
         
         <div class="row">
-
             <div class="col-6">
                 <h3 class="text-center m-3">Informations personnelles</h3>
-                <div class="text-center" id="perso">
-                <a href="{{ path('user_address') }}">Mes Adresses</a>
+                <div class="row">
+                    <div class="text-center" id="address">
+                <h5>Mon Adresse</h5>
+                <div class="column">
+                     {% for address in addresses %}
+                    {{ address.address }},
+                    <br>
+                    {{ address.zip }},  {{ address.city }} - {{ address.country }}
+                {% endfor %}
                 <br>
-                <a href="{{ path('app_forgot_password_request') }}">Modifier mon mot de passe</a>
+              <b><a href="{{ path('user_address') }}">Gérer mes adresses</a></b>  
                 </div>
+                </div>
+
+                <div class="text-center" id="mdp">
+                    <h5 style="margin-bottom: 20px;">Mot de passe</h5>
+                    <b><a href="{{ path('app_forgot_password_request') }}">Modifier mon mot de passe</a></b> 
+                </div>
+                </div>
+                
             </div>
             
             

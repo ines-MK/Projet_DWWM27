@@ -2,14 +2,31 @@ h1{
     color: #6F5843;
 }
 
-.address_list{
-    background-color: #6f584310;
+.table{
+    margin: 50px 0 74px 140px;
+    background-color: #6f58437a;
+    width: 80vw;
+    color: #FCF0D7;
 }
 
-.address_list a{
+.table th{
     padding: 10px;
-    background-color: #6F5843;
+    background-color: #6f5843db;
     color: #FCF0D7;
     text-decoration: none;
-    border-radius: 5px;
+}
+
+.table a{
+    color: #6F5843;
+}
+
+#champ input, #champ select{
+    background-color: #6f58435e;
+    color: #fcf4e2;
+    border: none;
+    border-radius: 50px;
+}
+
+#champ input::placeholder{
+    color: #6f58438a;
 }

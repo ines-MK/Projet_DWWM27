@@ -25,10 +25,10 @@
     <div class="password">
         <input type="password" placeholder="Mot de passe" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
     </div>
-    <a href="{{ path('app_forgot_password_request') }}" style="margin: -20px 0 10px 0;">Mot de passe oublié ?</a>
+    <a href="{{ path('app_forgot_password_request') }}" style="margin: -35px 0 20px 200px; color:#6F5843;">Mot de passe oublié ?</a>
 
     <div class="valider">
-        <button class="btn btn-secondary" type="submit">Valider</button>
+        <button class="btn btn-secondary" type="submit" style="color:#FCF0D7;">Valider</button>
     </div>
 
     <div class="inscription">
@@ -39,16 +39,5 @@
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}">
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}    
 </form>
 {% endblock %}

@@ -4,7 +4,7 @@ html, body{
 
 body{
     background-image: url(../img/Background\ -\ Accueilbas.jpg);
-    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1{
@@ -132,40 +132,15 @@ h1{
     transition: 0.2s;
 }
 
-.content form{
-    width: 500px;
-    height: 55px;
-    margin-top: 10px;
-    display: flex;
-}
-
-.content form input{
-    flex: 1;
-    border-radius: 50px;
-    border: none;
-    outline: none;
-    padding: 2% 2% 2% 4%;
-    padding-left: 30px;
-    background-color: #fcf0d7c9;
-}
-
-.content form button{
-    width: 60px;
-    border-radius: 100px;
-    border: none;
-    outline: none;
-    margin: 4px;
-    background-color:#6F5843;
-    color: #FCF0D7;
-}
-
-.content form button:hover{
-    background-color: #c1997187;
-    transition: 0.2s;
+.content .text-center img{
+        width: 90px;
+        cursor: pointer;
+        margin-bottom: 10px;
 }
 
 .content .payment img{
     width: 2vw;
+    margin-bottom: -20px;
 }
 
 .content .footer-right .social-media{

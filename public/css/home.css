@@ -28,17 +28,13 @@ header{
 
 .centre h1{
     font-size: 4.5rem;
-    margin-bottom: 60px;
 }
 
-.centre input{
-    background-color: #F6D0A1;
-    color:#6F5843;
-    padding: 10px 45px 10px 45px;
-    font-size: 1.5rem;
-    border-radius: 50px;
-    border: none;
-    margin-bottom: 60px;
+.centre h6{
+    color:rgba(255, 255, 255, 0.273);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: -20px 0 0 300px;
 }
 
 .centre  input:hover{
@@ -50,7 +46,7 @@ header{
 main h5{
     color:#6F5843;
     text-shadow: rgba(0, 0, 0, 0.336) -6 0px;
-    margin: 150px 0 40px 90px;
+    margin: 300px 0 40px 90px;
 }
 
 main a{
@@ -113,7 +109,7 @@ main .left input:hover{
     transition: 0.5s;
 }
 
-main .nous{
+main .histoire{
     color: #6F5843;
     margin: 100px 0 100px 0;
     flex: 0 0 30%;
@@ -121,10 +117,9 @@ main .nous{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-main .nous .left{
+main .histoire .left{
     background-color:#C19971;
     padding: 22px;
     height: 43vh;
@@ -137,12 +132,17 @@ main .left{
     flex-direction: column;
 }
 
-main .right img{
+main .histoire .right img{
     width: 35vw;
     height: 40vh;
 }
 
-main .produits{
+main .guide .right img{
+    width: 35vw;
+    height: 42vh;
+}
+
+main .guide{
     color: #6F5843;
     margin: 100px 0 100px 0;
     flex: 0 0 30%;
@@ -150,12 +150,11 @@ main .produits{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-main .produits .left{
+main .guide .left{
     background-color:#C19971;
     padding: 22px;
-    height: 43vh;
+    height: 45vh;
     width: 30vw;
 }

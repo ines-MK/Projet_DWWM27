@@ -14,14 +14,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class AddressController extends AbstractController
 {
-    #[Route('/address', name: 'address')]
-    public function index(AddressRepository $addressRepository): Response
-    {
-        $addresses = $addressRepository->findAll();
-        return $this->render('address/index.html.twig', [
-            'addresses' => $addresses,
-        ]);
-    }
 
     #[Route('/address/add', name: 'address_add')]
     public function add(Request $request, ManagerRegistry $managerRegistry): Response
@@ -39,7 +31,7 @@ class AddressController extends AbstractController
             $manager->flush(); // envoi en BDD
 
             $this->addFlash('success', 'Votre adresse a bien été ajouté');
-            return $this->redirectToRoute('address');
+            return $this->redirectToRoute('user_address');
         }
 
         return $this->render('address/create.html.twig', [
@@ -49,13 +41,39 @@ class AddressController extends AbstractController
         ]);
     }
 
-    // #[Route('/address/user/{id]', name: 'address_user')]
-    // public function userAddress(AddressRepository $addressRepository): Response
-    // {
-    //     $addresses = $addressRepository->findBy();
+    #[Route('/address/update/{id}', name: 'address_update')]
+    public function update(Request $request, ManagerRegistry $managerRegistry, Address $address): Response
+    {
+        $form = $this->createForm(AddressType::class, $address);
+        $form->handleRequest($request);
 
-    //     return $this->render('address/userAddress.html.twig', [
-    //         'addresses' => $addresses  
-    //     ]);
-    // }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getUser();
+            $address->setUser($this->getUser());
+
+            $manager = $managerRegistry->getManager();
+            $manager->persist($address); 
+            $manager->flush(); // envoi en BDD
+
+            $this->addFlash('success', 'Votre adresse a bien été modifié.');
+            return $this->redirectToRoute('user_address');
+        }
+
+        return $this->render('address/update.html.twig', [
+            'address' => $address,
+            'addressForm' => $form->createView()
+        
+        ]);
+    }
+
+    #[Route('/address/delete/{id}', name: 'address_delete')]
+    public function delete(Address $address, ManagerRegistry $managerRegistry): Response
+    {
+        $manager = $managerRegistry->getManager();
+        $manager->remove($address); // supprime le produit
+        $manager->flush();
+
+        $this->addFlash('success', 'L\'adresse a été supprimé avec succès.'); // msg de succès
+        return $this->redirectToRoute('user_address');
+    }
 }

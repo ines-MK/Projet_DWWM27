@@ -18,7 +18,7 @@
         </thead>
         
         <tbody>
-            {% for order in orders %}
+            {% for order in orders|reverse %}
             <tr>
                 <td>{{ order.id }}</td>
                 {# <button href="{{ path('order_details') }} "></button> #}
@@ -29,7 +29,6 @@
                 <td>{{ order.created_at }}</td>
                 <td>{{ order.paid }}</td> 
             </tr>
-           
             {% endfor %}
         </tbody>
     </table>

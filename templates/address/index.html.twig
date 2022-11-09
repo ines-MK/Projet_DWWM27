@@ -5,5 +5,36 @@
 {% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/address.css') }}">{% endblock %}
 
 {% block body %}
-
+            <h1 class="text-center">Mes Adresses</h1>
+            <table class="table table-sm text-center align-middle">
+                <thead>
+                    <tr>
+                        <th class="col-3">Adresse</th>
+                        <th class="col-1">Code Postale</th>
+                        <th class="col-3">Ville</th>
+                        <th class="col-1">Pays</th>
+                        <th class="col-1">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        {% for address in addresses %}
+                     <tr>
+                        <td>{{ address.address }}</td>
+                        <td>{{ address.zip }}</td>
+                        <td>{{ address.city }}</td>
+                        <td>{{ address.country }}</td>
+                        <td>
+                            <a href="{{ path('address_update', {'id': address.id}) }}"><i class="bi bi-pencil-square m-1"></i></a>
+                            <a onclick="return confirm('Etes vous sûr de vouloir supprimer cet adresse : {{ address.address }} ?')" href="{{ path('address_delete', {'id': address.id}) }}"><i class="bi bi-trash3 text-danger m-1"></i></a>
+                        </td>
+                    </tr>
+                     {% endfor %}
+                </tbody>
+               
+            </table>
+            <div class="col-12 text-end my-5">
+                <a href="{{ path('app_user')}}" class="btn btn-secondary" style="background-color:#C19971; border:none;">Retour</a>
+                <a href="{{ path('address_add') }}"><button class="btn btn-success me-5" style="background-color:#6F5843; border:none;">Ajouter une adresse</button></a>
+            </div>
 {% endblock %}

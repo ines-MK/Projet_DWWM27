@@ -1,10 +1,10 @@
-{% extends 'baseAdmin.html.twig' %}
+{% extends 'baseCollab.html.twig' %}
 
 {% block title %}Espace Admin{% endblock %}
 
 {% block body %}
 <div class="admin_home text-center">
-    <h2>Bonjour {{app.user.FirstName}} ! Bienvenue dans l'espace administrateur d'El Rizana !</h2>
+    <h2>Bonjour {{app.user.FirstName}} ! Bienvenue dans l'espace collaborateur d'El Rizana !</h2>
         <p>VEUILLEZ SELECTIONNER UNE RUBRIQUE DANS LE MENU DE GAUCHE POUR DEBUTER
             L'ADMINISTRATION DU SITE.</p>
     <a href="{{ path('app_user') }}"><input type="button" value="Mon espace"></a>

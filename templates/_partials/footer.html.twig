@@ -3,19 +3,17 @@
         <div class="text-center">
             <li class="m-2"><a href="{{ path('we') }}">Qui sommes nous ?</a></li>
             <li class="m-2"><a href="{{ path('products') }}">Musc Tahara</a></li>
-            <li class="m-2"><a href="#">Mentions légales</a></li>
+            <li class="m-2"><a href="{{ path('legal_notice') }}">Mentions légales</a></li>
         </div>
         <div class="text-center">
-            <p>Inscrivez-vous dès maintenant à notre Newsletters pour ne rien rater !</p>
-            <form>
-                <input type="email" placeholder="Entrez votre e-mail">
-                <button><i class="bi bi-send"></i></button>
-            </form>
+            <div class="logo">
+                <a href="{{ path('home') }}"><img src="{{ asset('img/LogoRB.png') }}" alt="El Rizanalogo"></a>
+           </div>
             <span class="payment">
-                <li class="m-2">
-                    <a href="#"><img src="{{ asset('img/visa.ico') }}" alt="icone visa"></a>
-                    <a href="#"><img src="{{ asset('img/AmericanExpress.ico')}}" alt="icone american express"></a> 
-                    <a href="#"><img src="{{ asset('img/mastercard.ico')}}" alt="icone mastercard"></a> 
+                <li>
+                    <img src="{{ asset('img/visa.ico') }}" alt="icone visa">
+                    <img src="{{ asset('img/AmericanExpress.ico')}}" alt="icone american express">
+                    <img src="{{ asset('img/mastercard.ico')}}" alt="icone mastercard">
                     
                 </li>
             </span>

@@ -1,13 +1,21 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit PaymentRequest{% endblock %}
+{% block title %}Modifier le paiement{% endblock %}
 
 {% block body %}
-    <h1>Edit PaymentRequest</h1>
+    <h1 class="text-center">Modifier le paiement</h1>
 
-    {{ include('admin_payment_request/_form.html.twig', {'button_label': 'Modifier'}) }}
+    
+    <div class="col-10" style="margin-left: 170px;">
 
-    <a href="{{ path('app_admin_payment_request_index') }}">Retour à la liste</a>
+            {{ include('admin_payment_request/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+        
 
-    {{ include('admin_payment_request/_delete_form.html.twig') }}
+        <a href="{{ path('app_admin_payment_request_index') }}"><button class="btn"  style="background-color:#6F5843;  border:none; border-radius: 5px; padding: 10px; color: #FCF0D7; margin: 5px 0 5px 0;">Retour à la liste</button></a>
+
+        
+        {{ include('admin_payment_request/_delete_form.html.twig') }}
+        
+    </div>
+    
 {% endblock %}

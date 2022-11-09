@@ -38,7 +38,7 @@
 </div>
 
 <div class="col-6 p-5" id="livraison">
-    <h2 class="text-center">Livraison</h2>
+    <h2 class="text-center" style="margin-bottom: 40px;">Livraison</h2>
     {{ form_start(cartValidationForm) }}
         {{ form_row(cartValidationForm.
             billing_address, {
@@ -49,10 +49,6 @@
                 delivery_address, {
                     'label': "Adresse de livraison"
                 })}}
-
-                {{ form_row(cartValidationForm.carrier, {
-                        'label': "Transporteur"
-                    })}}
     {{ form_end(cartValidationForm) }}
 </div>
 </div>

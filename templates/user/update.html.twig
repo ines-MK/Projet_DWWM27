@@ -9,7 +9,7 @@
 <h1 id="liste">Modifier un utilisateur</h1>
 {{ form_start(userForm) }}
 
-<div class="row">
+<div class="row" id="user">
     <div class="col-4">
         {{ form_row(userForm.first_name, {'label': 'Prénom'}) }}
     </div>
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="user">
     <div class="col-4">
         {{ form_row(userForm.email) }}
     </div>
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="user">
     <div class="col-4">
         {{ form_row(userForm.plainPassword.first, {'label': 'Mot de passe'}) }}
     </div>
@@ -36,14 +36,14 @@
     </div>
 </div>
 
-<div class="offset-3">
+<div class="offset-2">
     {{ form_row(userForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
 </div>
 
 <div class="row">
     <div class="col-12 text-end">
-        <a href="{{ path('admin_users')}}" class="btn btn-secondary">Annuler</a>
-        <button type="submit" class="btn btn-secondary">Modifier</button>
+        <a href="{{ path('admin_users')}}" class="btn" id="btn-secondary">Annuler</a>
+        <button type="submit" class="btn" id="btn-success">Modifier</button>
     </div>
 </div>
 {{ form_end(userForm) }}

@@ -74,38 +74,3 @@ class PaymentController extends AbstractController
         return $this->render('payment/cancel.html.twig');
     }
 }
-//         $paymentRequest = $paymentRequestRepository->findOneBy([
-//             'stripeSessionId' => $stripeSessionId
-//         ]);
-//         if (!$paymentRequest)
-//         {
-//             return $this->redirectToRoute('cart');
-//         }
-
-//         $paymentRequest->setValidated(true);
-//         $paymentRequest->setPaidAt(new DateTimeImmutable());
-
-//         $entityManager->flush();
-
-//         $cartService->clear();
-
-//         
-//     
-
-    // #[Route('/payment/cancel/{stripeSessionId}', name: 'payment_cancel')]
-    // public function cancel(string $stripeSessionId, PaymentRequestRepository $paymentRequestRepository, EntityManagerInterface $entityManager): Response
-    // {
-    //     $paymentRequest = $paymentRequestRepository->findOneBy([
-    //         'stripeSessionId' => $stripeSessionId
-    //     ]);
-    //     if (!$paymentRequest)
-    //     {
-    //         return $this->redirectToRoute('cart');
-    //     }
-
-    //     $entityManager->remove($paymentRequest);
-    //     $entityManager->flush();
-
-    //     return $this->render('payment/failure.html.twig');
-    // }
-// }

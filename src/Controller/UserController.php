@@ -17,24 +17,24 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserController extends AbstractController
 {
     #[Route('/user', name: 'app_user')]
-    public function index(UserRepository $userRepository): Response
+    public function index(AddressRepository $addressRepository): Response
     {
-        $addresses = $userRepository->findAll();
+        $user_id = $this->getUser(); // recup user connecté
+        $addresses = $addressRepository->findBy(['user' => $user_id], ['id' => 'DESC'], 1);
         return $this->render('user/index.html.twig', [
             'user_name' => 'UserController',
-            'addresses' => $addresses  
+            'addresses' => $addresses
         ]);
     }
 
-    #[Route('/user/addresses/{user_id}', name: 'user_address')]
-    public function userAddress(AddressRepository $addressRepository, $user_id): Response
+    #[Route('/user/addresses', name: 'user_address')]
+    public function userAddress(AddressRepository $addressRepository): Response
     {
-        
-        $addresses = $addressRepository->findBy([$user_id]);
-        if($addresses)
-
-        return $this->render('address/userAddress.html.twig', [
-            'addresses' => $addresses  
+        $user_id = $this->getUser(); // recup user connecté
+        $addresses = $addressRepository->findBy(['user' => $user_id]);
+        return $this->render('address/index.html.twig', [
+            'addresses' => $addresses,  
+            'user_id' => $user_id
         ]);
     }
 
@@ -44,10 +44,10 @@ class UserController extends AbstractController
         $users = $userRepository->findAll();
         return $this->render('user/userListAdmin.html.twig', [
             'users' => $users
-    ]);
+        ]);
     }
 
-    #[Route('/admin/user/create', name:'user_create')]
+    #[Route('/admin/user/create', name: 'user_create')]
     public function create(Request $request, ManagerRegistry $managerRegistry, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $user = new User(); // création d'un nouvel utilisateur
@@ -71,7 +71,6 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'L\'utilisateur a bien été créé'); // msg succès
             return $this->redirectToRoute('admin_users');
-
         }
 
         return $this->render('user/create.html.twig', [
@@ -79,7 +78,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/user/update/{id}', name:'user_update')]
+    #[Route('/admin/user/update/{id}', name: 'user_update')]
     public function update(Request $request, ManagerRegistry $managerRegistry, User $user): Response
     {
         $userForm = $this->createForm(RegistrationFormType::class, $user);
@@ -100,7 +99,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/user/delete/{id}', name:'user_delete')]
+    #[Route('/user/delete/{id}', name: 'user_delete')]
     public function delete(User $user, ManagerRegistry $managerRegistry): Response
     {
         $manager = $managerRegistry->getManager();
