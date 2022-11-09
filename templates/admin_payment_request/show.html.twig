@@ -16,10 +16,6 @@
                 <td>{{ payment_request.createdAt ? payment_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Payer le</th>
-                <td>{{ payment_request.paidAt ? payment_request.paidAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
                 <th>Validé</th>
                 <td>{{ payment_request.validated ? 'Oui' : 'Non' }}</td>
             </tr>
@@ -31,7 +27,6 @@
     </table>
 
     <div class="row align-center">
-        <a class="text-end m-1" href="{{ path('app_admin_payment_request_edit', {'id': payment_request.id}) }}"><button class="btn" style="background-color:#C19971; padding: 10px; color: #FCF0D7;">Modifier le paiement</button></a>
         <a class="text-end m-1" href="{{ path('app_admin_payment_request_index') }}"><button class="btn" style="background-color:#6F5843; padding: 10px; color: #FCF0D7;">Retour à la liste</button></a>
 
         

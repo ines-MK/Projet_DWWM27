@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
 use Stripe\StripeClient;
 use App\Service\CartService;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,10 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PaymentController extends AbstractController
 {
-    #[Route('/payment', name: 'payment')]
-    public function index(Request $request, CartService $cartService): Response
+    #[Route('/payment/{order}', name: 'payment')]
+    public function index(Request $request, CartService $cartService, Order $order): Response
     {
-        // dd($request->headers->get('referer'));
         if ($request->headers->get('referer') !== 'https://127.0.0.1:8000/cart/validation') {
             return $this->redirectToRoute('cart');
         }
@@ -30,10 +31,7 @@ class PaymentController extends AbstractController
                     'unit_amount' => $product['product']->getPrice() * 100,
                     'product_data' => [
                         'name' => $product['product']->getName(),
-                        // 'description' => $product['product']->getDescription(),
-                        // 'images' => [
-                        //     'https://127.0.0.1:8000/public/img/product/' . $product['product']->getImg1()
-                        // ]
+                        'description' => $product['product']->getDescription()
                     ]
                 ]
             ];
@@ -45,32 +43,46 @@ class PaymentController extends AbstractController
         $stripeSession = $stripe->checkout->sessions->create([ // création de la session paiement Stripe
             'line_items' => $stripeCart,
             'mode' => 'payment',
-            'success_url' => 'https://127.0.0.1:8000/payment/success',
+            'success_url' => 'https://127.0.0.1:8000/payment/' . $order->getId() . '/success',
             'cancel_url' => 'https://127.0.0.1:8000/payment/cancel',
             'payment_method_types' => ['card']
         ]);
         
         return $this->render('payment/index.html.twig', [
-            'sessionId' => $stripeSession->id
+            'sessionId' => $stripeSession->id,
+            'order' => $order->getId()
         ]);
     }
 
-    #[Route('/payment/success/', name: 'payment_success')]
-    public function success(Request $request, CartService $cartService): Response
+    #[Route('/payment/{order}/success/', name: 'payment_success')]
+    public function success(Request $request, CartService $cartService, Order $order, ManagerRegistry $managerRegistry): Response
     {
         if ($request->headers->get('referer') !== 'https://checkout.stripe.com/') { // vérifier qu'on viens bien de Stripe
             return $this->redirectToRoute('cart');
         }
         $cartService->clear(); // vide le panier quand le paiement est un succès
-        // passe la commande à paid->true en faisant un setPaid(true)
+
+        $order->setPaid(true); // passe la commande à paid->true en faisant un setPaid(true)
+        $managerRegistry->getManager()->persist($order);
+        $managerRegistry->getManager();
+
+        foreach ($order->getOrderDetails() as $orderDetail) { // gestion des stocks restants en base de données
+            $product = $orderDetail->getProduct();
+            $product->setQuantity($product->getQuantity() - $orderDetail->getQuantity());
+            $managerRegistry->getManager()->persist($product);
+        }
+
+        $managerRegistry->getManager()->flush();
+
         return $this->render('payment/success.html.twig');
     }
 
-    #[Route('/payment/cancel/', name: 'payment_cancel')]
-    public function cancel(Request $request, CartService $cartService): Response
+    #[Route('/payment/cancel', name: 'payment_cancel')]
+    public function cancel(Request $request): Response
     {
-        // vérifier qu'on viens bien de Stripe
-
+        if ($request->headers->get('referer') !== 'https://checkout.stripe.com/') { // vérifie qu'on vient bien de Stripe
+            return $this->redirectToRoute('cart');
+        }
         return $this->render('payment/cancel.html.twig');
     }
 }

@@ -12,8 +12,7 @@
             <tr>
                 <th>N*</th>
                 <th>Créer le</th>
-                <th>Payé le</th>
-                <th>Validation</th>
+                <th>Validé</th>
                 <th>Identifiant de session Stripe</th>
                 <th>Actions</th>
             </tr>
@@ -23,13 +22,10 @@
             <tr>
                 <td>{{ payment_request.id }}</td>
                 <td>{{ payment_request.createdAt ? payment_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ payment_request.paidAt ? payment_request.paidAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ payment_request.validated ? 'Oui' : 'Non' }}</td>
                 <td>{{ payment_request.stripeSessionId }}</td>
-                <td>
+                <td class="text-center">
                     <a href="{{ path('app_admin_payment_request_show', {'id': payment_request.id}) }}" title="Aperçu"><i class="bi bi-eye m-1" style="color: rgb(127, 170, 244);"></i></a>
-                    <a href="{{ path('app_admin_payment_request_edit', {'id': payment_request.id}) }}" title="Modifier"><i class="bi bi-pencil-square m-1"></i></a>
-                    <a href="{{ path('app_admin_payment_request_delete', {'id': payment_request.id}) }}" title="Supprimer"><i class="bi bi-trash3 text-danger m-1"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -39,9 +35,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <div class="col-12 text-end">
-        <button type="button" class="btn btn-light" style="background-color: #C19971; border: none;"><a href="{{ path('app_admin_payment_request_new') }}" style="color: #FCF0D7;">Nouveau paiement</a></button>
-    </div>
-    
 {% endblock %}

@@ -42,22 +42,18 @@
     {{ form_start(cartValidationForm) }}
         {{ form_row(cartValidationForm.
             billing_address, {
-                'label': "Adresse de facturation"
-            })}}
-
+                'label': "Adresse de facturation" })}}
             {{ form_row(cartValidationForm.
                 delivery_address, {
-                    'label': "Adresse de livraison"
-                })}}
+                    'label': "Adresse de livraison" })}}
+                <div class="row text-end">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-succes validation m-3" style="color: #FCF0D7;">Payer</button>
+                    </div>
+                </div>
     {{ form_end(cartValidationForm) }}
 </div>
-</div>
 
-<div class="row text-end" id="row">
-    <div class="col-12">
-    <button type="submit" class="validation"><a href="{{ path('payment') }}" class="text-light">Payer</a></button>
-</div>
-</div>
 
 
 {% endblock %}

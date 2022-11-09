@@ -25,8 +25,8 @@
             <td>{{ user.id }}</td>
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
-            <td></td>
-            {# <td>{{ user.roles }}</td> #}
+            <td>{{ user.roles | join('\n') }}</td>
+            
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td>

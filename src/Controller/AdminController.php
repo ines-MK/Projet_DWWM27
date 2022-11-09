@@ -15,4 +15,9 @@ class AdminController extends AbstractController
             'admin' => 'AdminController',
         ]);
     }
+
+    // public function create()
+    // {
+    //     return view(view:'admin.users.create', ['roles' => Role::all()]);
+    // }
 }
