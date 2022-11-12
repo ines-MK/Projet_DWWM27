@@ -111,7 +111,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/admin/product/update/{id}', name: 'product_update')]
-    public function update(Product $product, ProductRepository $productRepository, Request $request, ManagerRegistry $managerRegistry): Response
+    public function update(Product $product, Request $request, ManagerRegistry $managerRegistry): Response
     {
         
         $form = $this->createForm(ProductType::class, $product);
@@ -230,3 +230,4 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('admin_products');// demande a doctrine de supp le produits
     }
 }
+
