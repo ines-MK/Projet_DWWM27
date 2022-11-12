@@ -2,8 +2,6 @@ h1{
     color: #6F5843;;
 }
 
-
-
 #inscription{
     margin: 80px;
 }
@@ -28,4 +26,3 @@ h1{
 #inscription_btn:hover{
     background-color: #C19971;
 }
-

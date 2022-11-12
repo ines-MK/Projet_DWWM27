@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Order;
 use App\Entity\PaymentRequest;
-use App\Form\PaymentRequestType;
 use App\Repository\PaymentRequestRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

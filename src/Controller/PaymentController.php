@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+use App\Entity\PaymentRequest;
+use App\Repository\PaymentRequestRepository;
 use Stripe\StripeClient;
 use App\Service\CartService;
 use Doctrine\Persistence\ManagerRegistry;
@@ -60,8 +62,9 @@ class PaymentController extends AbstractController
         if ($request->headers->get('referer') !== 'https://checkout.stripe.com/') { // vérifier qu'on viens bien de Stripe
             return $this->redirectToRoute('cart');
         }
-        $cartService->clear(); // vide le panier quand le paiement est un succès
 
+        $cartService->clear(); // vide le panier quand le paiement est un succès
+        
         $order->setPaid(true); // passe la commande à paid->true en faisant un setPaid(true)
         $managerRegistry->getManager()->persist($order);
         $managerRegistry->getManager();

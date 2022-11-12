@@ -42,6 +42,10 @@ class Order
     #[ORM\OneToOne(mappedBy: 'fromOrder', cascade: ['persist', 'remove'])]
     private ?PaymentRequest $paymentRequest = null;
 
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
@@ -172,6 +176,18 @@ class Order
         }
 
         $this->paymentRequest = $paymentRequest;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

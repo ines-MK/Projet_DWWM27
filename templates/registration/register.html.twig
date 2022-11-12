@@ -14,44 +14,40 @@
 
     <div id="inscription">
         {{ form_start(registrationForm) }}
-        <div class="row">
-            <div class="col-3 offset-3">
-                {{ form_row(registrationForm.first_name, {'label': 'Prénom'}) }}
+            <div class="row">
+                <div class="col-3 offset-3">
+                    {{ form_row(registrationForm.first_name, {'label': 'Prénom'}) }}
+                </div>
+                <div class="col-3">
+                    {{ form_row(registrationForm.last_name, {'label': 'Nom'}) }}
+                </div>
+            </div>
+            <div class="col-6">
+                {{ form_start(registrationForm) }}
+            </div>
+            <div class="row">
+                <div class="col-3 offset-3">
+                    {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="col-3">
+                    {{ form_row(registrationForm.phone, {'label': 'Téléphone'}) }}
+                </div>   
+            </div>
+            <div class="row">
+                <div class="col-3 offset-3">
+                {{ form_row(registrationForm.plainPassword.first, {'label': 'Mot de passe'}) }}
             </div>
             <div class="col-3">
-                {{ form_row(registrationForm.last_name, {'label': 'Nom'}) }}
+                {{ form_row(registrationForm.plainPassword.second, {'label': 'Répétez votre mot de passe'}) }}
             </div>
-        </div>
-        <div class="col-6">
-            {{ form_start(registrationForm) }}
-        </div>
-        <div class="row">
-            <div class="col-3 offset-3">
-                {{ form_row(registrationForm.email) }}
             </div>
-            <div class="col-3">
-                {{ form_row(registrationForm.phone, {'label': 'Téléphone'}) }}
-                
-            </div>   
-        </div>
-        <div class="row">
-            <div class="col-3 offset-3">
-            {{ form_row(registrationForm.plainPassword.first, {'label': 'Mot de passe'}) }}
-         </div>
-         <div class="col-3">
-            {{ form_row(registrationForm.plainPassword.second, {'label': 'Répétez votre mot de passe'}) }}
-         </div>
-        </div>
-         
-        <div class="offset-3">
-            {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
-        </div>
-        <div class="offset-8">
-            <button type="submit" class="btn m-3" id="inscription_btn">S'inscrire</button>
-        </div>
-        
-
-        
+            
+            <div class="offset-3">
+                {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
+            </div>
+            <div class="offset-8">
+                <button type="submit" class="btn m-3" id="inscription_btn">S'inscrire</button>
+            </div>
     {{ form_end(registrationForm) }}
     </div>
     

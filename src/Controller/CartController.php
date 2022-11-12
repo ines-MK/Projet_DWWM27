@@ -76,7 +76,7 @@ class CartController extends AbstractController
             $order->setAmount($cartService->getTotal());
             $order->setCreatedAt(new \DateTimeImmutable());
             $order->setPaid(false);
-            // $order->setUser($this->getUser());
+            $order->setUser($this->getUser());
             $order->setBillingAddress($cartValidationForm['billing_address']->getData());
             $order->setDeliveryAddress($cartValidationForm['delivery_address']->getData());
 

@@ -65,8 +65,6 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    
-
     #[Route('/verify/email', name: 'verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
