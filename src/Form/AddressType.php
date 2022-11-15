@@ -31,11 +31,7 @@ class AddressType extends AbstractType
                     'maxLenght' => 255
                 ] 
             ])
-            ->add('country', CountryType::class, [
-                'attr' => [
-                    'maxLenght' => 255
-                ] 
-            ])
+            ->add('country', CountryType::class)
             ;
         }
 

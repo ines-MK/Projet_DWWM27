@@ -42,11 +42,13 @@
             </div>
             </div>
             
-            <div class="offset-3">
-                {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
+            <div class="offset-3" style="display: flex;">
+            {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les'}) }}
+            &nbsp;<a href="{{ path('legal_notice') }}">Conditions Générales d'Utilisation *</a>
             </div>
+           </div> 
             <div class="offset-8">
-                <button type="submit" class="btn m-3" id="inscription_btn">S'inscrire</button>
+                <button type="submit" class="btn" id="inscription_btn">S'inscrire</button>
             </div>
     {{ form_end(registrationForm) }}
     </div>

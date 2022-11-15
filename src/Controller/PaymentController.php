@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Order;
-use App\Entity\PaymentRequest;
-use App\Repository\PaymentRequestRepository;
 use Stripe\StripeClient;
 use App\Service\CartService;
 use Doctrine\Persistence\ManagerRegistry;

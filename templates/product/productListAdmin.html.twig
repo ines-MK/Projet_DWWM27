@@ -22,8 +22,9 @@
                     <td>{{ loop.revindex }}</td>
                     <td>
                         <img src="{{ asset('img/product/' ~ product.image) }}" 
-                        alt="Image Principale du produit {{ product.name }}">{{product.name}}
+                        alt="Image Principale du produit {{ product.name }}">
                     </td>
+                    <td>{{product.name}}</td>
                     <td>{{ product.price|number_format(2, ',', ' ') }}€</td>
                     <td>{{ product.abstract }}</td>
                     <td>

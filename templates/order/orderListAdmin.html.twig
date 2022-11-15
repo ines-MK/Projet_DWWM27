@@ -10,7 +10,7 @@
                 <th class="col-1">N°</th>
                 <th class="col-1">Référence</th>
                 <th class="col-1">Montant</th>
-                <th class="col-1">Crée le</th>
+                {# <th class="col-1">Crée le</th> #}
                 <th class="col-1">Payé</th>
                 <th class="col-1">Actions</th>
             </tr>
@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ order.id }}</td>
                 {# <button href="{{ path('order_details') }} "></button> #}
-                <td>{{ order.user.first_name ~ ' ' ~ order.user.last_name|upper }}</td>
+                {# <td>{{ order.user.first_name ~ ' ' ~ order.user.last_name|upper }}</td> #}
                 <td>{{ order.reference }}</td>
                 <td>{{ order.amount }}</td>
                 {# <td>{{ order.created_at }}</td> #}

@@ -37,13 +37,11 @@ security:
     access_control:
         - { path: ^/cart/validation, roles: ROLE_USER }
         - { path: ^/payment, roles: ROLE_USER }
-        - { path: ^/collaborateur, roles: ROLE_COLLABORATEUR }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/admin/users, roles: ROLE_SUPER_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
     
     role_hierarchy:
-        ROLE_COLLABORATEUR: ROLE_USER 
         ROLE_ADMIN: ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 

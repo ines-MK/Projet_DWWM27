@@ -1,7 +1,33 @@
-{% extends 'baseAdmin.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Commandes{% endblock %}
 
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/address_order.css') }}">{% endblock %}
+
 {% block body %}
 <h1 class="text-center">Mes commandes</h1>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th class="col-1">Réferences</th>
+                        <th class="col-1">Montant</th>
+                        {# <th class="col-3">Date</th> #}
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        {% for order in orders %}
+                     <tr>
+                        <td>{{ order.reference }}</td>
+                        <td>{{ order.amount }}€</td>
+                        {# <td>{{ order.created_at }}</td> #}
+                    </tr>
+                     {% endfor %}
+                </tbody>
+               
+            </table>
+            <div class="col-12 text-end my-5">
+                <a href="{{ path('app_user')}}" class="btn btn-secondary" style="background-color:#C19971; border:none;">Retour</a>
+                <a href="{{ path('products') }}"><button class="btn btn-success me-5" style="background-color:#6F5843; border:none;">Passer une nouvelle commande</button></a>
+            </div>
 {% endblock %}

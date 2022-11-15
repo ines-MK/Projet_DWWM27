@@ -4,13 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Form\AddressType;
-use App\Repository\AddressRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class AddressController extends AbstractController
 {
@@ -56,7 +54,7 @@ class AddressController extends AbstractController
             $manager->flush(); // envoi en BDD
 
             $this->addFlash('success', 'Votre adresse a bien été modifié.');
-            return $this->redirectToRoute('user_address');
+            return $this->redirectToRoute('user_addresses');
         }
 
         return $this->render('address/update.html.twig', [
