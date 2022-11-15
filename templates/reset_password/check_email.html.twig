@@ -3,10 +3,10 @@
 {% block title %}E-mail de réinitialisation du mot de passe envoyé{% endblock %}
 
 {% block body %}
-<div class="col-6" style="margin: 123px; margin-left: 400px;">
-        <p translate="yes">
+<div class="col-6" style="margin: 123px; margin-left: 400px; color: #6F5843;">
+        <p>
         Si un compte correspondant à votre adresse e-mail existe, vous trouverez un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
-        Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        Ce lien expirera dans 1 heure.
     </p>
     <p>Si vous ne recevez pas d'e-mail, veuillez vérifier dans les spams ou <a href="{{ path('app_forgot_password_request') }}">réessayer</a>.</p>
 </div>

@@ -1,12 +1,16 @@
-<h1>Bonjour !</h1>
+<h1 style="color: #6F5843; font-family:'Sitka Small', Bold;">Bonjour !</h1>
 
-<p>Pour réinitialiser votre mot de passe, cliquez sur le lien suivant : </p>
+<p>🔒 Pour réinitialiser votre mot de passe, cliquez sur le lien suivant : </p>
 
-<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
-
-<p>Ce lien expirera dans  {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+<button type="submit" style="padding: 10px; background-color:#6F5843; border: none; border-radius: 50px;"class="text-center">
+   <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" style="color:#fbf2e8; text-decoration: none;">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+</button>
+<br><br>
+<b style="color: #b76c6c;">Ce lien expirera dans 1 heure.</b>
 
 <p>Cordialement, 
     <br>
     <br>
 L'équipe El Rizana</p>
+
+

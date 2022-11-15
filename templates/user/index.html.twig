@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="text-center" id="address">
                 <h5>Mon Adresse</h5>
-                     {% for address in addresses %}
+                    {% for address in addresses %}
                     {{ address.address }},
                     <br>
                     {{ address.zip }},  {{ address.city }} - {{ address.country }}
@@ -38,9 +38,12 @@
                 <div style="display: flex; justify-content: center;">
                 <div class="text-center" id="order">
                     <h5>Mes 3 dernières commandes</h5>
-                    {% for order in orders %}
-                 <b style="color:#ffffff ;">N° :</b>   {{ order.reference }} <b style="color:#ffffff63 ;">|</b> {{ order.amount }}€ <br>
-                   {% endfor %}
+                         {% for order in orders %}
+                         {% if order.ispaid == 1 %}
+                        <b style="color:#ffffff ;">N° :</b>   {{ order.reference }} <b style="color:#ffffff63 ;">|</b> {{ order.amount }}€ <br>
+                        {% endif %}
+                        {% endfor %}
+                    
              <b><a href="{{ path('user_orders') }}">Gérer mes commandes</a></b>
                 </div>
                 

@@ -39,8 +39,8 @@ class Order
     #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrderDetail::class)]
     private Collection $orderDetails;
 
-    #[ORM\OneToOne(mappedBy: 'fromOrder', cascade: ['persist', 'remove'])]
-    private ?PaymentRequest $paymentRequest = null;
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -154,24 +154,14 @@ class Order
         return $this;
     }
 
-    public function getPaymentRequest(): ?PaymentRequest
+    public function getUser(): ?User
     {
-        return $this->paymentRequest;
+        return $this->user;
     }
 
-    public function setPaymentRequest(?PaymentRequest $paymentRequest): self
+    public function setUser(?User $user): self
     {
-        // unset the owning side of the relation if necessary
-        if ($paymentRequest === null && $this->paymentRequest !== null) {
-            $this->paymentRequest->setFromOrder(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($paymentRequest !== null && $paymentRequest->getFromOrder() !== $this) {
-            $paymentRequest->setFromOrder($this);
-        }
-
-        $this->paymentRequest = $paymentRequest;
+        $this->user = $user;
 
         return $this;
     }

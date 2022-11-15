@@ -38,10 +38,9 @@
         <main class="container-fluid">
             <div class="row">
                     <nav class="col-1">
-                            <ul class="p-0" style="margin-top: -50px;">
+                            <ul class="p-0" style="margin-top: -20px;">
                                 <li class="py-4"><a href="{{ path('admin') }}" title="Accueil administrateur"><i class="bi bi-house fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('admin_products') }}" title="Produits"><i class="bi bi-tags fs-4"></i></a></li>
-                                <li class="py-4"><a href="{{ path('app_admin_payment_request_index') }}" title="Paiements"><i class="bi bi-cash-coin fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('admin_orders') }}" title="Commandes"><i class="bi bi-basket fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('admin_users') }}" title="Utilisateurs"><i class="bi bi-person-plus fs-4"></i></a></li>
                                 <li class="py-4"><a href="{{ path('home') }}" title="Accueil du site"><i class="bi bi-skip-backward fs-4" style="color: rgb(212, 153, 105)"></i></a></li>
@@ -49,7 +48,7 @@
                             </ul>
               </nav>
                 </div>
-                <div class="col-3" style="margin-left: 50px;">
+                <div class="col-3" style="margin-left: 180px;">
                     {% for label, messages in app.flashes %} {# Affiche tous les msg #}
                         {% for message in messages %}
                             <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 rounded">

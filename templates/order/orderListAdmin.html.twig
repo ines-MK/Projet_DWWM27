@@ -3,14 +3,15 @@
 {% block title %}Liste des commandes{% endblock %}
 
 {% block body %}
-    <h1 id="liste">Liste des commandes ✅</h1>
+    <h1 id="liste">Liste des commandes✅</h1>
     <table class="table table-sm text-center align-middle">
         <thead>
             <tr>
                 <th class="col-1">N°</th>
                 <th class="col-1">Référence</th>
                 <th class="col-1">Montant</th>
-                {# <th class="col-1">Crée le</th> #}
+                <th class="col-1">Crée le</th>
+                <th class="col-1">Heure</th>
                 <th class="col-1">Payé</th>
                 <th class="col-1">Actions</th>
             </tr>
@@ -20,15 +21,14 @@
             {% for order in orders|reverse %}
             <tr>
                 <td>{{ order.id }}</td>
-                {# <button href="{{ path('order_details') }} "></button> #}
-                {# <td>{{ order.user.first_name ~ ' ' ~ order.user.last_name|upper }}</td> #}
                 <td>{{ order.reference }}</td>
-                <td>{{ order.amount }}</td>
-                {# <td>{{ order.created_at }}</td> #}
-                <td>{{ order.paid }}</td> 
+                <td>{{ order.amount }}€</td>
+                <td>{{ order.createdAt ? order.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ order.createdAt ? order.createdAt|date('H:i:s') : '' }}</td>
+                <td>{{ order.paid ? 'Oui' : 'Non' }}</td> 
                 <td>
-                    <a><i class="bi bi-pencil-square m-1"></i></a>
-                    <a><i class="bi bi-trash3 text-danger m-1"></i></a>
+                    <a href="{{ path('order_delete', {'id': order.id}) }}" title="Détails"><i class="bi bi-trash3 text-danger m-1"></i></a>
+                    <a href="{{ path('order_details', {'id': order.id}) }}" title="Détails"><i class="bi bi-eye m-1" style="color: rgb(127, 170, 244);"></i></a>
                 </td>
             </tr>
             {% endfor %}

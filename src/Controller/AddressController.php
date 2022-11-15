@@ -29,7 +29,7 @@ class AddressController extends AbstractController
             $manager->flush(); // envoi en BDD
 
             $this->addFlash('success', 'Votre adresse a bien été ajouté');
-            return $this->redirectToRoute('user_address');
+            return $this->redirectToRoute('user_addresses');
         }
 
         return $this->render('address/create.html.twig', [
@@ -72,6 +72,6 @@ class AddressController extends AbstractController
         $manager->flush();
 
         $this->addFlash('success', 'L\'adresse a été supprimé avec succès.'); // msg de succès
-        return $this->redirectToRoute('user_address');
+        return $this->redirectToRoute('user_addresses');
     }
 }

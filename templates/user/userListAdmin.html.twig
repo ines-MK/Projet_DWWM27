@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h1 id="liste">Liste des utilisateurs</h1>
+<h1 id="liste">Liste des utilisateurs 👤</h1>
 
 <table class="table table-sm text-center align-middle">
     <thead>
@@ -15,6 +15,7 @@
             <th class="col-1">Rôle</th>
             <th class="col-1">E-mail</th>
             <th class="col-2">Numéro de téléphone</th>
+            <th class="col-2">Vérifié</th>
             <th class="col-1">Actions</th>
         </tr>
     </thead>
@@ -26,9 +27,9 @@
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.roles | join('\n') }}</td>
-            
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
+            <td>{{ user.isVerified ? 'Oui' : 'Non' }}</td>
             <td>
                 <a href="{{ path('user_update', {'id': user.id}) }}"><i class="bi bi-pencil-square m-1"></i></a>
                 <a onclick="return confirm('Etes vous sûr de vouloir supprimer cet utilisateur : {{ user.firstname }} ?')" href="{{ path('user_delete', {'id': user.id}) }}"><i class="bi bi-trash3 text-danger m-1"></i></a>

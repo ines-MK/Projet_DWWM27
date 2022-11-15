@@ -21,11 +21,7 @@ class UserCreateType extends AbstractType
             ->add('password')
             ->add('last_name')
             ->add('first_name')
-            ->add('phone', TelType::class, [
-                'attr' => [
-                    'minLenght' => 10
-                ]
-            ])
+            ->add('phone')
         ;
     }
 

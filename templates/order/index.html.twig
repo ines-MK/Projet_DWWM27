@@ -10,18 +10,20 @@
                 <thead>
                     <tr>
                         <th class="col-1">Réferences</th>
+                        <th class="col-1">Date</th>
                         <th class="col-1">Montant</th>
-                        {# <th class="col-3">Date</th> #}
                     </tr>
                 </thead>
                 <tbody>
                    
                         {% for order in orders %}
+                        {% if order.ispaid == 1 %}
                      <tr>
                         <td>{{ order.reference }}</td>
+                        <td>{{ order.createdAt ? order.createdAt|date('Y-m-d') : '' }}</td>
                         <td>{{ order.amount }}€</td>
-                        {# <td>{{ order.created_at }}</td> #}
                     </tr>
+                     {% endif %}
                      {% endfor %}
                 </tbody>
                

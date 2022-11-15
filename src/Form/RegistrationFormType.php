@@ -33,13 +33,14 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'attr' => [
                     'maxLenght' => 180
-                ]
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez entrer votre email',
+                    ]),
+                ],
             ])
-            ->add('phone', TextType::class, [
-                'attr' => [
-                    'maxLenght' => 11
-                ]
-            ])
+            ->add('phone')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
