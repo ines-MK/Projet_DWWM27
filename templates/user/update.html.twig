@@ -36,8 +36,9 @@
     </div>
 </div>
 
-<div class="offset-2">
-    {{ form_row(userForm.agreeTerms, {'label': 'J\'accepte les Conditions Générales d\'Utilisation *'}) }}
+<div class="offset-2" style="display: flex; color:#C19971;">
+    {{ form_row(userForm.agreeTerms, {'label': 'J\'accepte les'}) }}
+            &nbsp;<a href="{{ path('legal_notice') }}">Conditions Générales d'Utilisation *</a>
 </div>
 
 <div class="row">
