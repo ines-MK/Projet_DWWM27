@@ -10,8 +10,9 @@
           <a href="{{ path('home') }}"><img src="{{ asset('img/ElRizanaLOGO.png') }}" alt="El Rizanalogo"></a>
      </div>
 
-     <div class="rubriques">
-      {% if app.user %}
+      
+        <div class="rubriques">
+          {% if app.user %}
       <div class="deconnexion">
         <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
@@ -33,12 +34,17 @@
         <i class="fa fa-user"></i>
       </div>
       {% endif %}
-        
-        
           <ul>
               <li><a href="{{ path('we') }}">Qui sommes nous ?</a></li>
               <li><a href="{{ path('products') }}">Musc Tahara</a></li>
               <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+              {% if app.user %}
+              <div class="logout">
+              <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+               </div>
+               {% else %}
+              <li class="user-icon" ><a href="{{ path('app_user') }}"><i class="fa fa-user"></i></a></li>
+              {% endif %}
               <li style="margin-left: 10px;"><a href="{{ path('cart') }}" title="Panier"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i></a>
               
               {% if app.session.get('cart') is not empty %}
@@ -47,8 +53,22 @@
               {% endif %}
               </span> 
             </li>
-              
            </ul>
-    </div>
+           
+        </div><div class="menu-burger">
+<i class="bi-list"></i>
+        </div> 
+      </div> 
+            
+        </div>
  </div>
+
+ <script>
+  const menuBurger = document.querySelector(".menu-burger")
+  const Rubriques = document.querySelector(".rubriques")
+
+  menuBurger.addEventListener('click',()=>{
+  Rubriques.classList.toggle('mobile-menu')
+  })
+</script>
 

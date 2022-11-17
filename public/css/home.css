@@ -14,7 +14,8 @@ body{
 /*--------------- HEADER ----------------*/
 header{
     height: 90vh;
-    background-size: cover;background-image: url(../img/Background-Accueil.jpg);
+    background-size: cover;
+    background-image: url(../img/Background-Accueil.jpg);
     background-position: right 20% bottom 0%; /*M'a permit de déplacer le background de mon header*/
 }
 
@@ -32,13 +33,9 @@ header{
 
 .centre h6{
     color:rgba(255, 255, 255, 0.273);
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 400;
     margin: -20px 0 0 300px;
-}
-
-.centre  input:hover{
-    color: #C19971;
 }
 
 /*--------------- MAIN ----------------*/
@@ -160,4 +157,39 @@ main .guide .left{
 }
 
 /* ---------------- RESPONSIVE ---------------- */
+@media screen and (max-width: 700px) {
+    .centre h1{
+        font-size: 3rem;
+    }
+    .centre h6{
+        font-size: 0.8rem;
+    }
+    main .section1 img{
+        width: 30vw;
+        height:10vh;
+        border-radius: 50%;
+        margin-top: 20px;
+    }
+}
 
+@media screen and (max-width: 450px) {
+    .centre h1{
+        font-size: 2.7rem;
+    }
+    .centre h6{
+        font-size: 0.8rem;
+        margin-left: -3px;
+    }
+    main h5{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    main .section1 img{
+        width: 20vw;
+        height:30vh;
+        border-radius: 50%;
+        margin-top: 20px;
+    }
+}

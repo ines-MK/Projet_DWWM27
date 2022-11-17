@@ -46,10 +46,18 @@
             {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les'}) }}
             &nbsp;<a href="{{ path('legal_notice') }}">Conditions Générales d'Utilisation *</a>
             </div>
-           </div> 
-            <div class="offset-8">
-                <button type="submit" class="btn" id="inscription_btn"><a href="{{ path('home') }}" style="text-decoration: none; color:#FCF0D7;">S'inscrire</a></button>
+           </div>
+
+           {% if is_granted('ROLE_ADMIN') %}
+           <div class="offset-8">
+                <button type="submit" class="btn" id="inscription_btn">Ajouter</button>
             </div>
+           {% elseif is_granted('ROLE_USER') %}
+            <div class="offset-8">
+                <button type="submit" class="btn" id="inscription_btn">S'inscrire</button>
+            </div>
+           {% endif %}
+            
     {{ form_end(registrationForm) }}
     </div>
     

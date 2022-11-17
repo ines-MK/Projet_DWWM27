@@ -12,17 +12,21 @@
                         <th class="col-1">Produit</th>
                         <th class="col-1">Quantité</th>
                         <th class="col-1">Montant</th>
+                        <th class="col-1">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                    
-                {% for order_details in orders_details %}<tr>
-                    <td>{{ order_details.id }}</td>
-                    <td>{{ order_details.orders.reference }}</td>
-                    <td>{{ order_details.product.name }}</td>
-                    <td>{{ order_details.quantity }}</td>
-                    <td>{{ order_details.orders.amount }}€</td>
-               </tr>   {% endfor %}    
+                {% for order_detail in orders_details %}
+                <tr>
+                    <td>{{ order_detail.id }}</td>
+                    <td>{{ order_detail.orders.reference }}</td>
+                    <td>{{ order_detail.product.name }}</td>
+                    <td>{{ order_detail.quantity }}</td>
+                    <td>{{ order_detail.product.price }}€</td>
+                    <td><a href="{{ path('orderDetail_delete', {'id': order_detail.id}) }}" title="Détails"><i class="bi bi-trash3 text-danger m-1"></i></a></td>
+               </tr>  
+                {% endfor %}    
                       
                 </tbody> 
             </table>

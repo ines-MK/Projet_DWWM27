@@ -1,6 +1,6 @@
 .nous h1{
     color: #6F5843;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 .nous p{
@@ -8,7 +8,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    padding: 40px 200px 40px 200px;
+    padding: 40px 200px 60px 200px;
     color: #6F5843;
 }
 
@@ -19,3 +19,24 @@
     color: #6F5843;
 }
 
+@media screen and (max-width: 1200px) {
+    .nous p{
+        font-size: 1rem;
+        padding: 30px 150px 40px 150px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nous h1, .nous h2{
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+    }
+    .nous{
+        margin: 0;
+    }
+    .nous p{
+        font-size: 1rem;
+        padding: 20px 40px 50px 40px;
+    }
+}

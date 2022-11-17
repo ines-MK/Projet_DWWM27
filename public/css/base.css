@@ -28,6 +28,8 @@ h1{
     padding: 10px 0 10px 0;
 }
 
+
+
 /*--------------- BARRE DE NAVIGATION DU HEADER ----------------*/
 
 .navbar{
@@ -45,10 +47,16 @@ h1{
 
 /*---Rubriques*/
 
+.rubriques{
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
 .rubriques .input-icon{
     display: flex;
     justify-content: end;
-    margin: -28px 20px 20px 0;
+    margin: 0 13px 15px 0
 }
 
 .rubriques .deconnexion i{
@@ -98,6 +106,21 @@ h1{
     color: #C19971;
 }
 
+.menu-burger i{
+    display: none;
+    position: absolute;
+    font-size: 35px;
+    color: #6F5843;
+    top: 40px;
+    right: 0px;
+}
+
+.user-icon, .logout{
+    display: none;
+}
+
+
+
 
 /*--------------- FOOTER ----------------*/
 
@@ -140,7 +163,7 @@ h1{
 
 .content .payment img{
     width: 2vw;
-    margin-bottom: -20px;
+    margin-bottom: -10px;
 }
 
 .content .footer-right .social-media{
@@ -166,4 +189,122 @@ h1{
 .content .copyright p{
     color:#FCF0D7;
     margin: 0;
+}
+
+
+@media screen and (max-width: 1088px) {
+    .barinfo p{
+        margin: 0 15px 0 15px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .barinfo p{
+        margin: 0 15px 0 15px;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .barinfo p{
+        margin: 0 15px 0 15px;
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    .barinfo p{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .navbar{
+        margin: 10px;
+    }
+
+    .menu-burger i{
+        display: block;
+        right: 0;
+    }
+
+    .rubriques.mobile-menu::after{
+        content: "";
+        position: absolute;
+        width: 130%;
+        height: 50vh;
+        background: #f6d0a196;
+        backdrop-filter: blur(3px);
+        border-radius: 20px;
+        bottom: -3px;
+        right: 3%;
+        top: 30px;
+    }
+
+    .rubriques{
+        margin-left: -100%;
+    }
+
+    .rubriques ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+    }
+    .rubriques ul li, .rubriques ul a{
+        margin: 15px 0 15px 0;
+    }
+
+    .rubriques .deconnexion, .rubriques .input-icon{
+        display: none;
+    }
+
+    .user-icon, .logout{
+        display: flex;
+    }
+
+    .content .footer-right .social-media img, .content .footer-right .payment img{
+        width: 4vw;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .navbar .logo{
+        width: 10px;
+    }
+
+    .content .text-center{
+        font-size: 0.6rem;
+    }
+    .content .footer-right{
+        font-size: 0.7rem;
+    }
+    .content .footer-right .social-media img, .content .footer-right .payment img{
+        width: 7vw;
+    }
+    .content .footer-right img{
+        width: 20vw;
+    }
+    .content .copyright{
+        padding: 25px;
+        bottom: 0;
+        height: 10vh;
+    }
+    .content .copyright p{
+        font-size: 1rem;
+    }
+    .content .text-center{
+        font-size: 0.9rem;
+    }
+    .content .footer-right{
+        font-size: 1rem;
+    }
+    .content .footer-right .social-media img, .content .footer-right .payment img{
+        width: 6vw;
+    }
 }

@@ -27,12 +27,17 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
-    {
-        $user = new User();
+    // ------- implémentation de la méthode register : (permet au user de s'inscrire sur le site)
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response 
+    {   
+        // Création d'un nouvel utilisateur 
+        $user = new User(); 
+        // Je déclare la variable form dans laql je met le formulaire d'inscription
         $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
+        // Je demande au formulaire de récup les données entré par le user à partir de la requete HTTP
+        $form->handleRequest($request); 
 
+        //On applique seulement si le formulaire est envoyé et est valide (selon contrainte que j'ai mise dans registrationType.php) 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password (hash le mdp grâce au hashpassword c-à-d de le chiffrer)
             $user->setPassword(

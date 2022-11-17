@@ -31,6 +31,51 @@ class UserController extends AbstractController
         ]);
     }
 
+    // ------------------- ADMIN | Liste des utilisateur ------------------- 
+        #[Route('/admin/users', name: 'admin_users')]
+    public function userListAdmin(UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findAll();
+        return $this->render('user/userListAdmin.html.twig', [
+            'users' => $users
+        ]);
+    }
+
+    // ------------------- ADMIN | Modifier un utilisateur ------------------- 
+    #[Route('/admin/user/update/{id}', name: 'user_update')]
+    public function update(Request $request, ManagerRegistry $managerRegistry, User $user): Response
+    {
+        $userForm = $this->createForm(RegistrationFormType::class, $user);
+        $userForm->handleRequest($request);
+
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+
+            $manager = $managerRegistry->getManager();
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash('success', 'L\'utilisateur a été modifié avec succès.');
+            return $this->redirectToRoute('admin_users');
+        }
+
+        return $this->render('user/update.html.twig', [
+            'userForm' => $userForm->createView()
+        ]);
+    }
+
+    // ------------------- ADMIN | Supprimer un utilisateur ------------------- 
+
+    #[Route('/user/delete/{id}', name: 'user_delete')]
+    public function delete(User $user, ManagerRegistry $managerRegistry): Response
+    {
+        $manager = $managerRegistry->getManager();
+        $manager->remove($user); // supprime le produit
+        $manager->flush();
+
+        $this->addFlash('success', 'L\'utilisateur a été supprimé avec succès.'); // msg de succès
+        return $this->redirectToRoute('admin_users');
+    }
+
     // ------------------- Liste des adresses d'un utilisateur ------------------- 
     #[Route('/user/addresses', name: 'user_addresses')]
     public function userAddress(AddressRepository $addressRepository): Response
@@ -53,77 +98,5 @@ class UserController extends AbstractController
             'orders' => $orders,  
             'user_id' => $user_id
         ]);
-    }
-
-    #[Route('/admin/users', name: 'admin_users')]
-    public function userListAdmin(UserRepository $userRepository): Response
-    {
-        $users = $userRepository->findAll();
-        return $this->render('user/userListAdmin.html.twig', [
-            'users' => $users
-        ]);
-    }
-
-    #[Route('/admin/user/create', name: 'user_create')]
-    public function create(Request $request, ManagerRegistry $managerRegistry, UserPasswordHasherInterface $userPasswordHasher): Response
-    {
-        $user = new User(); // création d'un nouvel utilisateur
-        $userForm = $this->createForm(RegistrationFormType::class, $user);
-        $userForm->handleRequest($request);
-
-        if ($userForm->isSubmitted() && $userForm->isValid()) { // traitement des données (detecte si le form à été envoyé et que les données sont valide)
-
-            $user->setPassword(
-                $userPasswordHasher->hashPassword(
-                    $user,
-                    $userForm->get('plainPassword')->getData()
-                )
-            );
-
-            $user->setCreatedAt(new DateTimeImmutable);
-
-            $manager = $managerRegistry->getManager();
-            $manager->persist($user); // prépare utilisateur à envoi
-            $manager->flush(); // envoi en BDD
-
-            $this->addFlash('success', 'L\'utilisateur a bien été créé'); // msg succès
-            return $this->redirectToRoute('admin_users');
-        }
-
-        return $this->render('user/create.html.twig', [
-            'userForm' => $userForm->createView()
-        ]);
-    }
-
-    #[Route('/admin/user/update/{id}', name: 'user_update')]
-    public function update(Request $request, ManagerRegistry $managerRegistry, User $user): Response
-    {
-        $userForm = $this->createForm(RegistrationFormType::class, $user);
-        $userForm->handleRequest($request);
-
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-
-            $manager = $managerRegistry->getManager();
-            $manager->persist($user);
-            $manager->flush();
-
-            $this->addFlash('success', 'L\'utilisateur a été modifié avec succès.');
-            return $this->redirectToRoute('admin_users');
-        }
-
-        return $this->render('user/update.html.twig', [
-            'userForm' => $userForm->createView()
-        ]);
-    }
-
-    #[Route('/user/delete/{id}', name: 'user_delete')]
-    public function delete(User $user, ManagerRegistry $managerRegistry): Response
-    {
-        $manager = $managerRegistry->getManager();
-        $manager->remove($user); // supprime le produit
-        $manager->flush();
-
-        $this->addFlash('success', 'L\'utilisateur a été supprimé avec succès.'); // msg de succès
-        return $this->redirectToRoute('admin_users');
     }
 }

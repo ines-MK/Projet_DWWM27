@@ -10,6 +10,7 @@
                 <th class="col-1">N°</th>
                 <th class="col-1">Référence</th>
                 <th class="col-1">Montant</th>
+                <th class="col-1">E-mail client</th>
                 <th class="col-1">Crée le</th>
                 <th class="col-1">Heure</th>
                 <th class="col-1">Payé</th>
@@ -23,6 +24,7 @@
                 <td>{{ order.id }}</td>
                 <td>{{ order.reference }}</td>
                 <td>{{ order.amount }}€</td>
+                <td>{{ order.user ? order.user.email }}</td>
                 <td>{{ order.createdAt ? order.createdAt|date('Y-m-d') : '' }}</td>
                 <td>{{ order.createdAt ? order.createdAt|date('H:i:s') : '' }}</td>
                 <td>{{ order.paid ? 'Oui' : 'Non' }}</td> 

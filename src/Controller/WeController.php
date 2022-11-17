@@ -11,8 +11,6 @@ class WeController extends AbstractController
     #[Route('/we', name: 'we')]
     public function index(): Response
     {
-        return $this->render('we/index.html.twig', [
-            'we' => 'WeController',
-        ]);
+        return $this->render('we/index.html.twig');
     }
 }
