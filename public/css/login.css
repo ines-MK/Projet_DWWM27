@@ -53,3 +53,12 @@ form .email input::placeholder, .password input::placeholder{
     font-weight: 300;
     font-size: 1.2rem;
 }
+
+@media screen and (max-width: 900px){
+    form .email input, .password input{
+        width: 60vw;
+    }
+    form{
+        margin-bottom: 100px;
+    }
+}
