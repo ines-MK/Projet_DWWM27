@@ -106,7 +106,7 @@ h1{
     color: #C19971;
 }
 
-.menu-burger i{
+#menu-burger{
     display: none;
     position: absolute;
     font-size: 35px;
@@ -118,8 +118,6 @@ h1{
 .user-icon, .logout{
     display: none;
 }
-
-
 
 
 /*--------------- FOOTER ----------------*/
@@ -191,7 +189,6 @@ h1{
     margin: 0;
 }
 
-
 @media screen and (max-width: 1088px) {
     .barinfo p{
         margin: 0 15px 0 15px;
@@ -219,33 +216,33 @@ h1{
     }
 }
 
-
 @media screen and (max-width: 900px) {
 
     .navbar{
         margin: 10px;
     }
 
-    .menu-burger i{
+    #menu-burger{
         display: block;
         right: 0;
     }
 
-    .rubriques.mobile-menu::after{
+    .rubriques{
+        margin-top: -100%;
+    }
+
+    .rubriques.mobile-menu{
         content: "";
         position: absolute;
-        width: 130%;
-        height: 50vh;
+        width: 50%;
+        height: 40vh;
         background: #f6d0a196;
         backdrop-filter: blur(3px);
         border-radius: 20px;
         bottom: -3px;
         right: 3%;
         top: 30px;
-    }
-
-    .rubriques{
-        margin-left: -100%;
+        margin-top: 0;
     }
 
     .rubriques ul{
@@ -254,8 +251,10 @@ h1{
         justify-content: center;
         flex-direction: column;
         padding: 0;
+        margin: 40px 20px 0 0;
     }
-    .rubriques ul li, .rubriques ul a{
+    
+    .rubriques ul li{
         margin: 15px 0 15px 0;
     }
 

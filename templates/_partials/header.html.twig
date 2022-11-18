@@ -2,69 +2,63 @@
   <p>Paiement 100% sécurisé</p>
   <p>Livraison sous 4 à 5 jours avec Mondial Relay</p>
   <p>Expédition sous 24h - 48h</p>
- </div>
+</div>
  
  <div class="navbar">
-
      <div class="logo">
           <a href="{{ path('home') }}"><img src="{{ asset('img/ElRizanaLOGO.png') }}" alt="El Rizanalogo"></a>
      </div>
-
       
         <div class="rubriques">
           {% if app.user %}
-      <div class="deconnexion">
-        <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-      </div>
-      {% else %}
-      <div class="input-icon">
-        <a href="{{ path('login') }}"><input type="button" value="Se connecter / créer un compte"></a>
-        <i class="fa fa-user"></i>
-      </div>
-      {% endif %}
+              <div class="deconnexion">
+                <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              </div>
+          {% else %}
+              <div class="input-icon">
+                <a href="{{ path('login') }}"><input type="button" value="Se connecter / créer un compte"></a>
+                <i class="fa fa-user"></i>
+              </div>
+          {% endif %}
 
-      {% if is_granted('ROLE_ADMIN') %}
-      <div class="input-icon">
-        <a href="{{ path('admin') }}"><input type="button" value="Espace Administrateur"></a>
-        <i class="fa fa-user"></i>
-      </div>
-      {% elseif is_granted('ROLE_USER') %}
-      <div class="input-icon" style="margin-right: -40px;">
-        <a href="{{ path('app_user') }}"><input type="button" value="Mon espace"></a>
-        <i class="fa fa-user"></i>
-      </div>
-      {% endif %}
+          {% if is_granted('ROLE_ADMIN') %}
+              <div class="input-icon">
+                <a href="{{ path('admin') }}"><input type="button" value="Espace Administrateur"></a>
+                <i class="fa fa-user"></i>
+              </div>
+          {% elseif is_granted('ROLE_USER') %}
+            <div class="input-icon" style="margin-right: -40px;">
+              <a href="{{ path('app_user') }}"><input type="button" value="Mon espace"></a>
+              <i class="fa fa-user"></i>
+            </div>
+          {% endif %}
+
           <ul>
               <li><a href="{{ path('we') }}">Qui sommes nous ?</a></li>
               <li><a href="{{ path('products') }}">Musc Tahara</a></li>
               <li><a href="{{ path('contact') }}">Nous contacter</a></li>
-              {% if app.user %}
-              <div class="logout">
-              <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-               </div>
-               {% else %}
-              <li class="user-icon" ><a href="{{ path('app_user') }}"><i class="fa fa-user"></i></a></li>
-              {% endif %}
-              <li style="margin-left: 10px;"><a href="{{ path('cart') }}" title="Panier"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i></a>
-              
-              {% if app.session.get('cart') is not empty %}
-              <span  style="background-color:#6cb77b; border-radius: 50px; color: #FCF0D7; padding: 0 5px 0 5px;">
-              {{ render(controller('App\\Controller\\CartController::getNbProducts')) }}
-              {% endif %}
-              </span> 
-            </li>
+                {% if app.user %}
+                    <div class="logout">
+                    <a href="{{ path('logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    </div>
+                {% else %}
+                    <li class="user-icon" ><a href="{{ path('app_user') }}"><i class="fa fa-user"></i></a></li>
+                {% endif %}
+                    <li style="margin-left: 10px;"><a href="{{ path('cart') }}" title="Panier"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i></a>
+                
+                {% if app.session.get('cart') is not empty %}
+                    <span  style="background-color:#6cb77b; border-radius: 50px; color: #FCF0D7; padding: 0 5px 0 5px;">
+                    {{ render(controller('App\\Controller\\CartController::getNbProducts')) }}</span> 
+                {% endif %}
+              </li>
            </ul>
            
-        </div><div class="menu-burger">
-<i class="bi-list"></i>
-        </div> 
-      </div> 
-            
         </div>
- </div>
+        <i class="bi-list" id="menu-burger"></i>
+  </div> 
 
  <script>
-  const menuBurger = document.querySelector(".menu-burger")
+  const menuBurger = document.querySelector("#menu-burger")
   const Rubriques = document.querySelector(".rubriques")
 
   menuBurger.addEventListener('click',()=>{

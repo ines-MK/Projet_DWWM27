@@ -63,7 +63,7 @@ main .section1 img{
     margin-top: 30px;
 }
 
-main .card{
+main .cards .card{
     display: flex;
     align-items: center;
     text-align: center;
@@ -71,7 +71,10 @@ main .card{
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    width: 25vw;
+    width: 30vw;
+    height: 50vh;
+    max-width: 100%;
+    height: auto;
 }
 
 main .card:hover{
@@ -90,15 +93,28 @@ main .cards{
     justify-content: space-around;
 }
 
+.cards .card img{
+    height: 230px;
+    max-width: 100%;
+    height: auto;
+}
+
+main .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main .left input{
     background-color: #F6D0A1;
     color:#6F5843;
     padding: 5px 0 5px 0;
-    width: 9vw;
+    width: 15vw;
+    max-width: 100%;
     font-size: 1rem;
     border-radius: 50px;
     border: none;
-    margin-left: 135px;
+   
 }
 
 main .left input:hover{
@@ -106,7 +122,7 @@ main .left input:hover{
     transition: 0.5s;
 }
 
-main .histoire{
+main .histoire, main .guide{
     color: #6F5843;
     margin: 100px 0 100px 0;
     flex: 0 0 30%;
@@ -119,8 +135,10 @@ main .histoire{
 main .histoire .left{
     background-color:#C19971;
     padding: 22px;
-    height: 43vh;
     width: 30vw;
+    height: 230px;
+    max-width: 100%;
+    height: auto;
 }
 
 main .left{
@@ -131,29 +149,25 @@ main .left{
 
 main .histoire .right img{
     width: 35vw;
-    height: 40vh;
+    height: 50vh;
+    max-width: 100%;
+    height: auto;
 }
 
 main .guide .right img{
     width: 35vw;
-    height: 42vh;
-}
-
-main .guide{
-    color: #6F5843;
-    margin: 100px 0 100px 0;
-    flex: 0 0 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    height: 50vh;
+    max-width: 100%;
+    height: auto;
 }
 
 main .guide .left{
     background-color:#C19971;
     padding: 22px;
-    height: 45vh;
-    width: 30vw;
+    width: 35vw;
+    height: 50vh;
+    max-width: 100%;
+    height: auto;
 }
 
 /* ---------------- RESPONSIVE ---------------- */
@@ -170,26 +184,46 @@ main .guide .left{
         border-radius: 50%;
         margin-top: 20px;
     }
-}
-
-@media screen and (max-width: 450px) {
-    .centre h1{
-        font-size: 2.7rem;
+    .cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .centre h6{
-        font-size: 0.8rem;
-        margin-left: -3px;
+
+    /* ---------------- Cartes produits ---------------- */
+    main .cards .card{
+        width: 300px;
+        margin-top: 20px;
+    }
+    main h2{
+        font-size: 1.2rem;
+    }
+    main h3, main h5, main h6{
+        font-size: 1rem;
     }
     main h5{
-        margin-left: 0;
+        margin: 350px 0 30px 30px;
     }
-}
-
-@media screen and (max-width: 1150px) {
-    main .section1 img{
-        width: 20vw;
-        height:30vh;
-        border-radius: 50%;
-        margin-top: 20px;
+    
+    main .guide, main .histoire{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
+    main .guide .left, main .histoire .left{
+        padding: 5px;
+        width: 60vw;
+        max-width: 100%;
+        height: auto;
+    }
+    main .left input{
+        background-color: #F6D0A1;
+        color:#6F5843;
+        padding: 5px 0 5px 0;
+        width: 25vw;
+        max-width: 100%;
+        border-radius: 50px;
+        border: none;
+        font-size: 0.8rem;
     }
 }
