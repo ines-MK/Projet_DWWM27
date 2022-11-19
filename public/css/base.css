@@ -224,18 +224,18 @@ h1{
 
     #menu-burger{
         display: block;
-        right: 0;
+        right: 20px;
     }
 
     .rubriques{
-        margin-top: -100%;
+        margin-top: -200%;
     }
 
     .rubriques.mobile-menu{
         content: "";
         position: absolute;
         width: 50%;
-        height: 40vh;
+        height: 50vh;
         background: #f6d0a196;
         backdrop-filter: blur(3px);
         border-radius: 20px;

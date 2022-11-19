@@ -28,7 +28,7 @@ class CartController extends AbstractController
     {
         $cartService->add($id);
         $this->AddFlash('success', 'L\'article a bien été ajouté au panier');
-        if ($request->headers->get('referer') === 'https://127.0.0.1:8000/cart') {
+        if ($request->headers->get('referer') === 'https://el-rizana.ines-mokhtar.com/cart') {
             return $this->redirectToRoute('cart');
         }
         return $this->redirectToRoute('products'); // redirection vers page produits

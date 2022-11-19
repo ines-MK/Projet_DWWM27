@@ -16,12 +16,14 @@ class PaymentController extends AbstractController
     #[Route('/payment/{order}', name: 'payment')]
     public function index(Request $request, CartService $cartService, Order $order): Response
     {
-        if ($request->headers->get('referer') !== 'https://127.0.0.1:8000/cart/validation') {
+        if ($request->headers->get('referer') !== 'https://el-rizana.ines-mokhtar.com/cart/validation') { // Si user ne vient pas de la page validation => redirection
             return $this->redirectToRoute('cart');
         }
-
-        $sessionCart = $cartService->getCart(); // récup panier en session
-        $stripeCart = []; // initialise panier Stripe (qui sera envoyé à Stripe)
+        
+        // récup panier en session
+        $sessionCart = $cartService->getCart(); 
+        // initialise panier Stripe (qui sera envoyé à Stripe)
+        $stripeCart = []; 
 
         foreach ($sessionCart as $product) { // transforme le panier session en panier Stripe
             $stripeElement = [
@@ -43,8 +45,8 @@ class PaymentController extends AbstractController
         $stripeSession = $stripe->checkout->sessions->create([ // création de la session paiement Stripe
             'line_items' => $stripeCart,
             'mode' => 'payment',
-            'success_url' => 'https://127.0.0.1:8000/payment/' . $order->getId() . '/success',
-            'cancel_url' => 'https://127.0.0.1:8000/payment/cancel',
+            'success_url' => 'https://el-rizana.ines-mokhtar.com/payment/' . $order->getId() . '/success',
+            'cancel_url' => 'https://el-rizana.ines-mokhtar.com/payment/cancel',
             'payment_method_types' => ['card']
         ]);
         
