@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class CartService
 {
-    protected $requestStack; // sessionInterface est devenu requestStack
+    protected $requestStack;
     protected $productRepository;
 
     public function __construct(RequestStack $requestStack, ProductRepository $productRepository) {
@@ -38,7 +38,7 @@ class CartService
                 unset($cart[$id]);
             }
         }
-        $this->requestStack->getSession()->set('cart', $cart);
+        $this->requestStack->getSession()->set('cart', $cart); // retourne le panier vidé 
     }
 
     public function delete(int $id): void
@@ -86,7 +86,7 @@ class CartService
     {
         $sessionCart = $this->requestStack->getSession()->get('cart', []);
         $nb = 0; // initialisation nb de produits qui vaut 0
-        foreach ($sessionCart as $id => $quantity) { // je boucle dans mon panier, ici j'ai une association clé valeur
+        foreach ($sessionCart as $id => $quantity) { // je boucle dans mon panier
             $nb += $quantity;
         }
         return $nb;

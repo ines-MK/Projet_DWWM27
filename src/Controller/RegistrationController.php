@@ -26,6 +26,7 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
+    // -----------------------------------------------> INSCRIPTION 
     #[Route('/register', name: 'register')]
     // ------- implémentation de la méthode register : (permet au user de s'inscrire sur le site)
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response 
@@ -39,11 +40,11 @@ class RegistrationController extends AbstractController
 
         //On applique seulement si le formulaire est envoyé et est valide (selon contrainte que j'ai mise dans registrationType.php) 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password (hash le mdp grâce au hashpassword c-à-d de le chiffrer)
+            // encode the plain password (hash le mdp grâce au hashpassword)
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('plainPassword')->getData() // recup mdp non haché
                 )
             );
 
@@ -52,7 +53,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('elrizana.contact@gmail.com', 'El Rizana'))
@@ -60,7 +60,6 @@ class RegistrationController extends AbstractController
                     ->subject('Veuillez confirmer votre adresse e-mail')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-            // do anything else you need here, like send an email
 
             return $this->redirectToRoute('home');
         }
@@ -70,6 +69,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    // -----------------------------------------------> VERIFICATION EMAIL 
     #[Route('/verify/email', name: 'verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {   
